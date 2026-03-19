@@ -1,0 +1,487 @@
+/**
+ * Japanese translations - 日本語
+ */
+I18n.addTranslations('ja', {
+    nav: {
+        home: 'ホーム',
+        solutions: 'ソリューション',
+        features: '機能',
+        exploreSolutions: 'ソリューションを探す',
+        download: 'ダウンロード',
+        pricing: '料金',
+        infrastructure: 'インフラ',
+        bonuses: 'ボーナス',
+        affiliate: 'アフィリエイト',
+        legal: '法的情報',
+        getStarted: '今すぐ始める',
+        allSolutions: '← すべてのソリューション',
+        menu: 'メニュー',
+        guide: 'ガイド'
+    },
+    hero: {
+        badge: 'エンタープライズグレードAIセキュリティ',
+        title: 'AIエージェント<br>トラフィックを保護',
+        description: '暗号化リレーインフラでAIプラットフォーム接続を保護。OpenClaw、ChatGPT、Claude、DeepSeek、Qwen等17以上のAIプラットフォームでプロンプト漏洩、認証情報盗難、セッションハイジャックを防止。',
+        cta: 'ソリューションを探す'
+    },
+    appHero: {
+        badge: 'AIエージェントセキュリティ',
+        description: 'エンドツーエンド暗号化AIリレー、ゼロデータログ、CNCERT/CCアドバイザリー準拠。主要プラットフォーム全体でAIエージェントトラフィックを保護。',
+        viewPlans: 'プランを見る'
+    },
+    apps: {
+        title: 'AIセキュリティソリューション',
+        description: 'ニーズに最適なAIリレーサービスをお選びください。',
+        viewDetails: '詳細を見る',
+        cardDesc: 'エンドツーエンド暗号化AIリレー、ゼロデータログ。',
+        badgeEncrypted: '暗号化',
+        badgeZeroLogs: 'ゼロログ',
+        badgeGlobal: 'グローバルネットワーク',
+        statNodes: 'ノード',
+        statPlatforms: 'プラットフォーム',
+        statPlans: 'プラン',
+        fromPrice: '〜から',
+        bonusDaysFree: '日間無料',
+        bonusHoursFree: '時間無料',
+        bonusMinsFree: '分間無料'
+    },
+    features: {
+        title: '選ばれる理由',
+        description: '業界をリードするAIエージェントセキュリティ。',
+        zeroData: {
+            title: 'ゼロデータログ',
+            description: 'AIプロンプト、モデル応答、研究クエリを一切記録・保存・分析しません。'
+        },
+        encryption: {
+            title: 'エンドツーエンド暗号化',
+            description: '軍事グレードの暗号化プロトコルがAIセッションを傍受やリプレイ攻撃から保護。'
+        },
+        anonymous: {
+            title: 'AIトラフィック分離',
+            description: 'スプリットトンネル技術でAIエージェントと学術トラフィックのみをリレー。他のトラフィックはローカル接続を維持。'
+        },
+        global: {
+            title: 'グローバルAIリレーネットワーク',
+            description: '世界中のAIリレーノードで主要AIプラットフォームへの低遅延接続。'
+        },
+        multiPlatform: {
+            title: 'マルチプラットフォーム',
+            description: '1つのサブスクリプションですべてのデバイスを保護 — デスクトップ、モバイルなど。'
+        },
+        support: {
+            title: '24時間365日サポート',
+            description: 'プライバシーの専門家が24時間体制でサポートいたします。'
+        }
+    },
+    contact: {
+        title: 'お問い合わせ',
+        description: 'ご質問やサポートが必要な場合は、お気軽にお問い合わせください。',
+        infoTitle: '連絡先情報',
+        formTitle: 'メッセージを送る',
+        email: 'メール',
+        businessReg: '事業者登録',
+        form: {
+            name: '名前',
+            namePlaceholder: 'お名前',
+            email: 'メール',
+            emailPlaceholder: 'yourname@example.com',
+            subject: '件名',
+            subjectPlaceholder: 'どのようなご用件ですか？',
+            message: 'メッセージ',
+            messagePlaceholder: 'お問い合わせ内容を詳しくお聞かせください...',
+            submit: '送信'
+        }
+    },
+    download: {
+        title: 'アプリをダウンロード',
+        description: 'お使いのデバイス用のアプリを入手しましょう。プラットフォームを選択してください。',
+        appStores: 'APP STOREからインストール（公式）',
+        directDownload: '手動でダウンロードしてインストール（オプション）',
+        guideHint: {
+            apple: 'App Storeにアクセスするために地域アカウントが必要ですか？',
+            android: 'Google Playにアクセスするために地域アカウントが必要ですか？',
+            windows: 'Microsoft Storeにアクセスするために地域アカウントが必要ですか？'
+        },
+        guideLink: {
+            apple: '海外 Apple ID 設定ガイド',
+            android: '海外 Google Account 設定ガイド',
+            windows: 'Microsoft Account 設定ガイド'
+        },
+        popupGuide: 'アカウント作成にお困りですか？',
+        popupTitle: '{{platform}}版 {{app}} を入手',
+        popupSubtitle: 'お使いのデバイスは {{platform}} です。<br>今すぐアプリをダウンロードしましょう！',
+        popupVersion: 'バージョン {{version}}',
+        popupOrDirect: 'または直接ダウンロード',
+        popupBrowseAll: 'すべてのプラットフォームを見る',
+        downloadNow: '今すぐダウンロード',
+        storeGuideHint: {
+            apple: '<small>作成方法を学ぶ</small><span>Apple ID</span>',
+            android: '<small>作成方法を学ぶ</small><span>Google Account</span>',
+            windows: '<small>作成方法を学ぶ</small><span>Microsoft Account</span>'
+        },
+        windows: {
+            name: 'Windows'
+        },
+        android: {
+            name: 'Android'
+        },
+        apple: {
+            name: 'Apple'
+        }
+    },
+    pricing: {
+        title: 'シンプルで透明な料金体系',
+        description: '最適なプランをお選びください。すべてのプランでフルアクセスが可能です。',
+        previous: '前へ',
+        next: '次へ',
+        featurePrivacy: '完全AIトラフィック保護',
+        featureNodes: '全グローバルリレーノード',
+        featureBandwidth: '無制限の帯域幅',
+        featureSupport: '24/7 AIセキュリティサポート',
+        days: '日間',
+        day: '日'
+    },
+    servers: {
+        title: 'グローバルAIリレーネットワーク',
+        description: 'AIプラットフォームと学術リソースへの低遅延アクセスのための暗号化リレーノード。'
+    },
+    bonuses: {
+        title: '限定ボーナス',
+        description: '登録や友達紹介でリワードを獲得しましょう。',
+        daysFree: '日間無料',
+        hoursFree: '時間無料',
+        minutesFree: '分間無料',
+        welcomeBonus: {
+            title: 'ウェルカムボーナス',
+            description: '登録すると無料アクセスがもらえます'
+        },
+        referralBonus: {
+            title: '紹介ボーナス',
+            description: '友達を紹介するたびに日数を獲得'
+        },
+        shareBonus: {
+            title: 'シェアボーナス',
+            description: 'SNSでシェアしてリワードを獲得'
+        }
+    },
+    affiliate: {
+        title: 'アフィリエイトプログラム',
+        description: 'パートナーネットワークに参加して一緒に成長しましょう。',
+        heroTitle: '紹介するたびに報酬を獲得',
+        heroDescription: 'ネットワークを収入に変えましょう。AIセキュリティ保護を共有し、紹介が成功するたびに報酬を獲得できます。',
+        startingCommission: '初期コミッション',
+        commissionTiers: 'コミッションティア',
+        payouts: '支払い',
+        anytime: 'いつでも',
+        becomePartner: 'パートナーになる',
+        tierBronze: 'ブロンズ',
+        tierSilver: 'シルバー',
+        tierGold: 'ゴールド',
+        tierPlatinum: 'プラチナ',
+        tierDiamond: 'ダイヤモンド',
+        viewFullProgram: '完全なプログラムを見る'
+    },
+    legal: {
+        title: '法的情報',
+        description: '透明性は私たちにとって重要です。',
+        userAgreement: '利用規約',
+        privacyPolicy: 'プライバシーポリシー'
+    },
+    footer: {
+        brand: 'Root Corporation',
+        brandDescription: '暗号化リレーインフラでAIプラットフォーム接続を保護。世界中の研究者と開発者に信頼されています。',
+        solutions: 'ソリューション',
+        company: '会社情報',
+        download: 'ダウンロード',
+        contactUs: 'お問い合わせ',
+        support: 'サポート',
+        copyright: '© 2025 Root Corporation Pty Ltd. All rights reserved.',
+        abn: 'ABN 34 686 229 532 · Australia',
+        affiliate: 'アフィリエイト'
+    },
+    aff: {
+        navHow: '仕組み',
+        navCommission: 'コミッション',
+        navExamples: '事例',
+        navPayout: '支払い',
+        navFaq: 'よくある質問',
+        heroBadge: 'パートナーネットワーク',
+        heroTitle: 'アフィリエイト収入を<br>構築しよう',
+        heroDesc: 'マルチティアアフィリエイトプログラムに参加して、すべての紹介でコミッションを獲得しましょう。ネットワークを拡大するほど、より多くの収益レベルが解放されます。',
+        heroRate: '20%+',
+        heroRateLabel: '初期コミッション',
+        heroTiersLabel: '収益ティア',
+        heroPayoutValue: '即時',
+        heroPayoutLabel: 'ウォレットクレジット',
+        howTitle: '仕組み',
+        howDesc: '4つの簡単なステップで報酬を獲得しましょう。',
+        step1Title: '登録してコードを取得',
+        step1Desc: 'いずれかのサービスに登録すると、自動的に固有の6文字の紹介コードが発行されます。誰とでも共有できます。',
+        step2Title: '共有してネットワークを拡大',
+        step2Desc: '紹介コードを共有しましょう。あなたのコードを使って登録した人はネットワークの一員になります。ネットワークが拡大するにつれ、ティアが上がり、より深い収益レベルが解放されます。',
+        step3Title: 'マルチレベルコミッションを獲得',
+        step3Desc: 'ネットワーク内の誰かが購入すると、コミッションを獲得できます。上位ティアでは、より深いレベルからも報酬を得られます。コミッションは即座にウォレットに入金されます。',
+        step4Title: '銀行口座に出金',
+        step4Desc: 'どの国にお住まいでも、アプリでワンタップするだけで、コミッション収益を現地通貨で現地の銀行口座に出金できます。50以上の通貨と80以上の国に対応しています。',
+        insightMultiLevel: '<strong>マルチレベル収益：</strong>あなたのティアによって、何レベルの深さまで報酬を得られるかが決まります。ブロンズでは直接紹介（レベル1）から、ダイヤモンドでは5レベルの深さまで報酬を獲得できます。各レベルのコミッション率は固定されており、ティアを上げることでより多くのレベルのパッシブインカムが解放されます。',
+        commissionTitle: 'コミッション体系',
+        commissionDesc: '各サービスの詳細なコミッション率とティア要件。',
+        matrixTitle: 'コミッションマトリックス',
+        yourTier: 'あなたのティア',
+        direct: '（直接）',
+        totalEarning: '合計',
+        reqTitle: 'ティア要件',
+        tier: 'ティア',
+        membersNeeded: '必要メンバー数',
+        orRevenueNeeded: 'または必要収益額',
+        levelsUnlocked: '解放レベル数',
+        matrixInsight: '<strong>重要ポイント：</strong>コミッション率はティアではなく、レベル（あなたからの距離）によって決まります。ティアは何レベルの深さまで報酬を得られるかを決めるだけです。例えば、ゴールドアフィリエイトはレベル1で20%、レベル2で10%、レベル3で5%を獲得します。',
+        examplesTitle: '収益シナリオ',
+        examplesDesc: 'ネットワーク構築に伴う収益の成長をご覧ください。',
+        exBronzeScenario: '<strong>5人のユーザー</strong>を紹介し、それぞれが月額プランに<strong>A$100</strong>を使います。',
+        exSilverScenario: 'あなたの<strong>5人の直接紹介者</strong>がそれぞれ<strong>さらに3人</strong>を紹介します。紹介された各メンバーが<strong>A$100</strong>を使います。',
+        exGoldScenario: '<strong>10人の直接紹介者</strong>がおり、それぞれに<strong>3人のサブ紹介者</strong>、さらにそれぞれが<strong>3人</strong>を紹介します。紹介された各メンバーが<strong>A$100</strong>を使います。',
+        exPlatinumScenario: '<strong>25人の直接紹介者</strong>がおり、4レベルにわたって平均<strong>レベルあたり3人</strong>のネットワークが成長しています。紹介された各メンバーが<strong>A$100</strong>を使います。',
+        exTier: 'ティア',
+        exDiamondScenario: '<strong>50人以上の直接紹介者</strong>がおり、5レベルの深いネットワークで<strong>ブランチあたり平均3人</strong>です。紹介された各メンバーが<strong>A$100</strong>を使います。',
+        exTotal: '合計',
+        exLocked: 'ロック',
+        scrollHint: 'スクロールしてすべてのティアを表示',
+        payoutTitle: '支払い情報',
+        payoutDesc: 'コミッションはアプリ内ウォレットに即時入金されます。いつでもアプリから引き出し可能です。',
+        minWithdrawal: '最低引き出し額',
+        withdrawFee: '引き出し手数料',
+        payoutMethod: '支払い方法',
+        payoutMethodValue: '銀行振込',
+        creditSpeed: 'コミッション入金',
+        creditSpeedValue: 'リアルタイム',
+        payoutNote: '<strong>仕組み：</strong>ネットワーク内の誰かが購入すると、コミッションが計算され、アプリ内ウォレットにリアルタイムで入金されます。アプリから直接銀行振込でいつでも残高を引き出すことができ、<strong>50以上の通貨</strong>と<strong>80以上の国</strong>に対応しています。1回の出金につき <strong id="aff-withdraw-fee">A$2.00</strong> の固定手数料がかかり、お住まいの地域の通貨によっては少額の通貨換算手数料が発生する場合があります。紹介されたユーザーにはウェルカムギフトとして<strong>3日間の無料ボーナス</strong>も付与されます。',
+        faqTitle: 'よくある質問',
+        faqDesc: 'アフィリエイトプログラムについて知っておくべきすべてのこと。',
+        faq1Q: 'アフィリエイトプログラムに参加するにはどうすればよいですか？',
+        faq1A: '登録済みのすべてのユーザーに固有の紹介コードが自動的に発行されます。コードを他の人と共有するだけです。個別の申請プロセスはありません — すでにアフィリエイトです。',
+        faq2Q: 'コミッション率はどのように決まりますか？',
+        faq2A: 'コミッション率は収益レベルごとに固定されています（例：レベル1で20%、レベル2で10%）。ティアによって何レベルから報酬を得られるかが決まります。直接紹介者数または総コミッション収益のいずれかの基準に先に到達することでティアが上がります。',
+        faq3Q: 'ティアとレベルの違いは何ですか？',
+        faq3A: 'ティア（ブロンズ、シルバー、ゴールド、プラチナ、ダイヤモンド）はプログラムにおけるあなたのランクを表し、直接紹介者数または収益に基づいています。レベル（L1〜L5）は紹介ネットワークの深さを表します。上位ティアほどより多くの収益レベルが解放されます。例えば、ゴールドアフィリエイトはレベル1、2、3から報酬を獲得します。',
+        faq4Q: 'コミッションはいつ受け取れますか？',
+        faq4A: 'コミッションは、ネットワーク内で購入が完了するとすぐにアプリ内ウォレットにリアルタイムで入金されます。アプリから直接Wiseを通じていつでも銀行口座に残高を引き出せます。最低引き出し額と定額の処理手数料が適用されます — 詳細は上記の支払いセクションをご確認ください。',
+        faq5Q: '複数のサービスから報酬を得られますか？',
+        faq5A: 'はい。紹介コードはすべてのサービスで有効です。コミッション率とティア要件はサービスごとに異なる場合があります — 各サービスの詳細は上記のコミッション体系表をご確認ください。',
+        faq6Q: '紹介されたユーザーには何が付与されますか？',
+        faq6A: 'あなたの紹介コードを使って登録したユーザーには、3日間の無料ボーナスがアカウントに付与されます。紹介のプロモーションが容易になります — あなたのコードを使うことで紹介者にも即時のメリットがあります。',
+        faq7Q: '報酬に上限はありますか？',
+        faq7A: 'いいえ。報酬に上限はありません。ネットワークが拡大し、購入が増えるほど、より多く報酬を獲得できます。ダイヤモンドティアでは、5レベルの深さから上限なしでコミッションを獲得できます。',
+        ctaTitle: '今すぐ始めませんか？',
+        ctaDesc: 'アプリをダウンロードし、紹介コードを取得して、今日からネットワーク構築を始めましょう。',
+        qrScan: 'スキャンしてこのページを共有'
+    },
+    accountGuide: {
+        title: 'アカウント設定ガイド',
+        description: '海外の Apple ID、Google Account、または Microsoft Account を作成して、お好みのプラットフォームストアからアプリをダウンロードしましょう。',
+        appleName: 'Apple ID',
+        appleDesc: 'iPhone & iPad',
+        androidName: 'Google Account',
+        androidDesc: 'Android デバイス',
+        windowsName: 'Microsoft Account',
+        windowsDesc: 'Windows PC',
+        tabAU: 'オーストラリア',
+        tabUS: 'アメリカ',
+        tabHK: '香港',
+        apple: {
+            step1Title: '準備',
+            step2Title: 'ブラウザで Apple ID を作成',
+            step3Title: '配送先住所を入力',
+            step4Title: 'iPhone を準備',
+            step5Title: 'サインインとアクティベーション',
+            tip: 'Settings から Apple ID をサインアウトしないでください — App Store 内でのみアカウントを切り替えてください。iCloud データは安全に保たれます。',
+            us: {
+                step1_1: 'これまで Apple ID に使用されたことのない新しいメールアドレスが必要です。新しいメール（Outlook、Hotmail、Gmail など — QQ Mail や 163 Mail など制限地域のメールプロバイダーは使用しないでください）を作成してください。',
+                step1_2: 'SMS 認証コードを受信できる電話番号を用意してください — Apple ID に登録されていない電話番号であれば、どの国/地域の番号でも使用できます。',
+                step1_3: 'アクティベーションを完了するには iPhone が必要です。',
+                step1_4: '後の手順で免税州（Alaska、Montana、Oregon、または Delaware）の有効な米国住所と米国電話番号が必要になります — https://www.meiguodizhi.com のアドレスジェネレーターにアクセスして生成してください。ウェブサイトにアクセスできない場合は、www.bing.com で「US address generator」と検索してください。',
+                step2_1: '任意のデバイスのブラウザでシークレット/プライベートモードを開き、account.apple.com/us にアクセスしてください（Google Chrome または Edge が推奨です）。右上の「Create Your Apple Account」をクリックしてください。',
+                step2_2: '姓と名を入力してください（任意の名前で構いません）。',
+                step2_3: '国/地域として「United States」を選択してください。',
+                step2_4: '生年月日を入力してください（18歳以上である必要があります）。',
+                step2_5: '新しいメールアドレスを入力してください — そのメールは以前に Apple ID の登録に使用されていてはいけません。認証コードを受信できることを確認してください。',
+                step2_6: 'パスワードを作成してください（大文字、小文字、数字、特殊記号を含む8文字以上）。',
+                step2_7: '電話番号を入力してください — SMS 認証コードの受信に使用されます。任意の番号を使用できます（米国の電話番号である必要はありません）。これは後で配送先住所に入力する電話番号とは異なります。「Continue」をクリックしてください。',
+                step2_8: 'Apple から送信されたコードでメールと電話番号の両方を認証してください。',
+                step3_1: 'ブラウザで account.apple.com の Apple Account にアクセスしてください。アカウント管理ページで「Payment & Shipping」を選択し、「Add Shipping Address」を選択してください。手順1で準備したアドレスジェネレーターで生成した米国住所を入力してください。支払い方法を追加する必要はありません。',
+                step3_2: '送信後、Web 上での米国 Apple ID の登録は完了です。',
+                step4_1: 'iPhone で Settings > Privacy & Security > Location Services に移動し、OFF にしてください。',
+                step4_2: 'Settings > General > Language & Region に移動し、Language を「English (US)」、Region を「United States」に設定してください。',
+                step4_3: 'App Store を開き、右上のプロフィールアイコンをタップし、下にスクロールして「Sign Out」をタップして、App Store 内のみで現在の Apple ID からサインアウトしてください（Settings のシステム Apple ID には影響しません）。',
+                step5_1: 'App Store で右上のプロフィールアイコンをタップし、新しく登録した Apple ID でサインインしてください。任意の無料アプリをダウンロードしてみてください。「This Apple ID has not yet been used in the iTunes Store」というプロンプトが表示されます。',
+                step5_2: '「Review」をタップしてください。地域として「United States」を選択し（正しい地域を選択する必要があります）、利用規約に同意して「Next」をタップしてください。支払い方法は選択しないでください。手順1の米国住所と電話番号を入力してください — ここの電話番号はジェネレーターの米国番号を使用し、個人の番号は使用しないでください。',
+                step5_3: '「Next」をタップして完了です。米国 Apple ID が完全にアクティベートされ、使用可能になりました。'
+            },
+            au: {
+                step1_1: 'これまで Apple ID に使用されたことのない新しいメールアドレスが必要です。新しいメール（Outlook、Hotmail、Gmail など — QQ Mail や 163 Mail など制限地域のメールプロバイダーは使用しないでください）を作成してください。',
+                step1_2: 'SMS 認証コードを受信できる電話番号を用意してください — Apple ID に登録されていない電話番号であれば、どの国/地域の番号でも使用できます。',
+                step1_3: 'アクティベーションを完了するには iPhone が必要です。',
+                step1_4: '後の手順で有効なオーストラリアの住所とオーストラリアの電話番号が必要になります — https://www.meiguodizhi.com/au-address のアドレスジェネレーターにアクセスして生成してください。ウェブサイトにアクセスできない場合は、www.bing.com で「Australia address generator」と検索してください。',
+                step2_1: '任意のデバイスのブラウザでシークレット/プライベートモードを開き、account.apple.com/au にアクセスしてください（Google Chrome または Edge が推奨です）。右上の「Create Your Apple Account」をクリックしてください。',
+                step2_2: '姓と名を入力してください（任意の名前で構いません）。',
+                step2_3: '国/地域として「Australia」を選択してください。',
+                step2_4: '生年月日を入力してください（18歳以上である必要があります）。',
+                step2_5: '新しいメールアドレスを入力してください — そのメールは以前に Apple ID の登録に使用されていてはいけません。認証コードを受信できることを確認してください。',
+                step2_6: 'パスワードを作成してください（大文字、小文字、数字、特殊記号を含む8文字以上）。',
+                step2_7: '電話番号を入力してください — SMS 認証コードの受信に使用されます。任意の番号を使用できます（オーストラリアの電話番号である必要はありません）。これは後で配送先住所に入力する電話番号とは異なります。「Continue」をクリックしてください。',
+                step2_8: 'Apple から送信されたコードでメールと電話番号の両方を認証してください。',
+                step3_1: 'ブラウザで account.apple.com の Apple Account にアクセスしてください。アカウント管理ページで「Payment & Shipping」を選択し、「Add Shipping Address」を選択してください。手順1で準備したアドレスジェネレーターで生成したオーストラリアの住所を入力してください。支払い方法を追加する必要はありません。',
+                step3_2: '送信後、Web 上でのオーストラリア Apple ID の登録は完了です。',
+                step4_1: 'iPhone で Settings > Privacy & Security > Location Services に移動し、OFF にしてください。',
+                step4_2: 'Settings > General > Language & Region に移動し、Language を「English (Australia)」、Region を「Australia」に設定してください。',
+                step4_3: 'App Store を開き、右上のプロフィールアイコンをタップし、下にスクロールして「Sign Out」をタップして、App Store 内のみで現在の Apple ID からサインアウトしてください（Settings のシステム Apple ID には影響しません）。',
+                step5_1: 'App Store で右上のプロフィールアイコンをタップし、新しく登録した Apple ID でサインインしてください。任意の無料アプリをダウンロードしてみてください。「This Apple ID has not yet been used in the iTunes Store」というプロンプトが表示されます。',
+                step5_2: '「Review」をタップしてください。地域として「Australia」を選択し（正しい地域を選択する必要があります）、利用規約に同意して「Next」をタップしてください。支払い方法は選択しないでください。手順1のオーストラリアの住所と電話番号を入力してください — ここの電話番号はジェネレーターのオーストラリア番号を使用し、個人の番号は使用しないでください。',
+                step5_3: '「Next」をタップして完了です。オーストラリア Apple ID が完全にアクティベートされ、使用可能になりました。'
+            },
+            hk: {
+                step1_1: 'これまで Apple ID に使用されたことのない新しいメールアドレスが必要です。新しいメール（Outlook、Hotmail、Gmail など — QQ Mail や 163 Mail など制限地域のメールプロバイダーは使用しないでください）を作成してください。',
+                step1_2: 'SMS 認証コードを受信できる電話番号を用意してください — Apple ID に登録されていない電話番号であれば、どの国/地域の番号でも使用できます。',
+                step1_3: 'アクティベーションを完了するには iPhone が必要です。',
+                step1_4: '後の手順で有効な香港の住所と香港の電話番号が必要になります — https://www.meiguodizhi.com/hk-address のアドレスジェネレーターにアクセスして生成してください。ウェブサイトにアクセスできない場合は、www.bing.com で「Hong Kong address generator」と検索してください。',
+                step2_1: '任意のデバイスのブラウザでシークレット/プライベートモードを開き、account.apple.com/hk にアクセスしてください（Google Chrome または Edge が推奨です）。右上の「建立你的 Apple 帳戶」をクリックしてください。',
+                step2_2: '姓と名を入力してください（任意の名前で構いません）。',
+                step2_3: '国/地域として「香港」を選択してください。',
+                step2_4: '生年月日を入力してください（18歳以上である必要があります）。',
+                step2_5: '新しいメールアドレスを入力してください — そのメールは以前に Apple ID の登録に使用されていてはいけません。認証コードを受信できることを確認してください。',
+                step2_6: 'パスワードを作成してください（大文字、小文字、数字、特殊記号を含む8文字以上）。',
+                step2_7: '電話番号を入力してください — SMS 認証コードの受信に使用されます。任意の番号を使用できます（香港の電話番号である必要はありません）。これは後で配送先住所に入力する電話番号とは異なります。「Continue」をクリックしてください。',
+                step2_8: 'Apple から送信されたコードでメールと電話番号の両方を認証してください。',
+                step3_1: 'ブラウザで account.apple.com の Apple Account にアクセスしてください。アカウント管理ページで「Payment & Shipping」を選択し、「Add Shipping Address」を選択してください。手順1で準備したアドレスジェネレーターで生成した香港の住所を入力してください。支払い方法を追加する必要はありません。',
+                step3_2: '送信後、Web 上での香港 Apple ID の登録は完了です。',
+                step4_1: 'iPhone で Settings > Privacy & Security > Location Services に移動し、OFF にしてください。',
+                step4_2: 'Settings > General > Language & Region に移動し、Language を「繁體中文 (Traditional Chinese)」、Region を「香港」に設定してください。',
+                step4_3: 'App Store を開き、右上のプロフィールアイコンをタップし、下にスクロールして「Sign Out」をタップして、App Store 内のみで現在の Apple ID からサインアウトしてください（Settings のシステム Apple ID には影響しません）。',
+                step5_1: 'App Store で右上のプロフィールアイコンをタップし、新しく登録した Apple ID でサインインしてください。任意の無料アプリをダウンロードしてみてください。「This Apple ID has not yet been used in the iTunes Store」というプロンプトが表示されます。',
+                step5_2: '「Review」をタップしてください。地域として「Hong Kong」を選択し（正しい地域を選択する必要があります）、利用規約に同意して「Next」をタップしてください。支払い方法は選択しないでください。手順1の香港の住所と電話番号を入力してください — ここの電話番号はジェネレーターの香港番号を使用し、個人の番号は使用しないでください。',
+                step5_3: '「Next」をタップして完了です。香港 Apple ID が完全にアクティベートされ、使用可能になりました。'
+            },
+            faqTitle: 'よくある質問',
+            faq1Q: '既存のメールアドレスで登録できますか？',
+            faq1A: 'いいえ。メールアドレスは新しいもので、以前に Apple ID に紐付けられたことがないものでなければなりません。以前に使用されたメールの場合、Apple は登録を拒否します。新しい Outlook、Hotmail、または Gmail のメールを作成してください。電話番号には制限がありません — SMS を受信できる任意の番号で機能します。',
+            faq2Q: 'iCloud データに影響がありますか？',
+            faq2A: 'いいえ。App Store からのみサインアウトし、Settings > Apple ID からはサインアウトしないでください。iCloud データ、写真、連絡先、その他のサービスは変更されません。',
+            faq3Q: 'Apple ID を切り替えることはできますか？',
+            faq3A: 'はい、App Store 内でいつでも元の Apple ID と地域用 Apple ID を自由に切り替えることができます。一方の ID でダウンロードしたアプリは、切り替え後もインストールされたままです。'
+        },
+        android: {
+            step1Title: '準備',
+            step1Desc: '認証用の有効な電話番号とバックアップメールアドレス（オプション）が必要です。Android デバイスで Google Play Store にアクセスできることを確認してください。ブラウザまたは Gmail アプリを使用して新しいアカウントを作成します。',
+            step2Title: 'Google Account を作成',
+            au: {
+                step2Desc: 'ブラウザで accounts.google.com/signup にアクセスしてください。姓と名を入力し、Gmail のユーザー名を選び、強力なパスワードを設定してください。国を選択する際に「Australia」を選択してください。電話認証を完了してアカウントの作成を終了します。'
+            },
+            us: {
+                step2Desc: 'ブラウザで accounts.google.com/signup にアクセスしてください。姓と名を入力し、Gmail のユーザー名を選び、強力なパスワードを設定してください。国を選択する際に「United States」を選択してください。電話認証を完了してアカウントの作成を終了します。'
+            },
+            hk: {
+                step2Desc: 'ブラウザで accounts.google.com/signup にアクセスしてください。姓と名を入力し、Gmail のユーザー名を選び、強力なパスワードを設定してください。国を選択する際に「Hong Kong」を選択してください。電話認証を完了してアカウントの作成を終了します。'
+            },
+            step3Title: 'デバイスにアカウントを追加',
+            step3Desc: 'Android デバイスで Settings > Accounts（または Users & accounts）に移動してください。「Add account」をタップし、Google を選択してください。新しい Google Account の資格情報でサインインしてください。アカウントがデバイスと Play Store にリンクされます。',
+            step4Title: 'Play Store でアカウントを切り替え',
+            step4Desc: 'Google Play Store を開いてください。右上のプロフィールアイコンをタップし、名前の横にある下矢印をタップしてください。リストから新しい Google Account を選択してください。Play Store がそのアカウントで利用可能なコンテンツで再読み込みされます。',
+            step5Title: 'アプリをダウンロード',
+            step5Desc: '新しいアカウントでサインインした状態で Play Store でアプリを検索してください。「Install」をタップしてダウンロードしてください。利用規約の同意を求められた場合は、同意してください。アプリは新しい Google Account に紐付けられ、今後のアップデートも受け取れます。',
+            tip: 'Android デバイスには複数の Google Account を同時に保持できます。アカウントを削除することなく、Play Store 内で切り替えが可能です。',
+            faqTitle: 'よくある質問',
+            faq1Q: '既存の Google Account を削除する必要がありますか？',
+            faq1A: 'いいえ。Android は複数の Google Account をサポートしています。既存のアカウントと並行して新しいアカウントを追加し、Play Store 内で切り替えることができます。',
+            faq2Q: '既存のアプリやデータに影響がありますか？',
+            faq2A: 'いいえ。新しい Google Account を追加しても、既存のアプリ、連絡先、写真、その他のデータには影響しません。各アカウントは独立して動作します。',
+            faq3Q: 'Google Account なしでアプリを使用できますか？',
+            faq3A: 'ダウンロードセクションから Google Account なしで APK を直接インストールできます。ただし、Play Store を使用すると自動アップデートと検証済みインストールが保証されます。'
+        },
+        windows: {
+            step1Title: '準備',
+            step1Desc: '有効なメールアドレスまたは電話番号が必要です。Windows PC がインターネットに接続されていることを確認してください。ブラウザまたは Windows Settings から直接 Microsoft Account を作成できます。',
+            step2Title: 'Microsoft Account を作成',
+            au: {
+                step2Desc: 'account.microsoft.com にアクセスし、「Create a Microsoft account」をクリックしてください。メールアドレスを入力するか、「Get a new email address」を選択して Outlook アカウントを作成してください。強力なパスワードを設定してください。国/地域の選択で「Australia」を選択してください。認証手順を完了してください。'
+            },
+            us: {
+                step2Desc: 'account.microsoft.com にアクセスし、「Create a Microsoft account」をクリックしてください。メールアドレスを入力するか、「Get a new email address」を選択して Outlook アカウントを作成してください。強力なパスワードを設定してください。国/地域の選択で「United States」を選択してください。認証手順を完了してください。'
+            },
+            hk: {
+                step2Desc: 'account.microsoft.com にアクセスし、「Create a Microsoft account」をクリックしてください。メールアドレスを入力するか、「Get a new email address」を選択して Outlook アカウントを作成してください。強力なパスワードを設定してください。国/地域の選択で「Hong Kong」を選択してください。認証手順を完了してください。'
+            },
+            step3Title: 'Windows でサインイン',
+            step3Desc: 'Windows PC で Settings > Accounts > 「Email & accounts」を開き、「Add a Microsoft account」をクリックしてください。新しい資格情報でサインインしてください。または、Microsoft Store アプリから直接サインインすることもできます。',
+            step4Title: 'Microsoft Store を開く',
+            step4Desc: 'タスクバーまたはスタートメニューから Microsoft Store を開いてください。右上のプロフィールアイコンをクリックし、新しい Microsoft Account でサインインしていることを確認してください。複数のアカウントがある場合は、正しいアカウントを選択してください。',
+            step5Title: 'アプリをダウンロード',
+            step5Desc: 'Microsoft Store でアプリを検索してください。「Get」または「Install」をクリックしてダウンロードしてください。初回ダウンロードの場合、利用規約への同意が必要な場合があります。アプリは Microsoft Account に紐付けられ、今後のアップデートも受け取れます。',
+            tip: '上記のダウンロードセクションから Microsoft Store を使用せずに直接アプリをダウンロードすることもできます。直接ダウンロードは Microsoft Account なしで利用できます。',
+            faqTitle: 'よくある質問',
+            faq1Q: 'アプリを使用するには Microsoft Account が必要ですか？',
+            faq1A: '必ずしも必要ではありません。ダウンロードセクションから Microsoft Account なしで直接アプリをダウンロードできます。Microsoft Account は Microsoft Store からインストールする場合にのみ必要です。',
+            faq2Q: '既存の Microsoft Account を使用できますか？',
+            faq2A: 'はい、既存の Microsoft Account（Outlook、Hotmail、Xbox など）を使用して Microsoft Store にサインインし、アプリをダウンロードできます。',
+            faq3Q: 'アプリは自動的にアップデートされますか？',
+            faq3A: 'Microsoft Store からインストールした場合、アップデートは自動的に処理されます。直接ダウンロードの場合、このページから最新バージョンを手動でダウンロードする必要があります。'
+        }
+    },
+
+    // Marketing / Promotion Guide (marketing.html)
+    mkt: {
+        navOnline: 'オンラインプロモーション',
+        navOffline: 'オフラインプロモーション',
+        navPrint: '印刷設定',
+        navStrategy: '戦略',
+        heroBadge: 'プロモーションガイド',
+        heroTitle: 'プロモーション &amp; 獲得<br>継続的な収入',
+        heroDesc: 'あなたの紹介コードは単なるコードではありません — 継続的な収入を構築するチャンスです。あなたの紹介者とその紹介者からもコミッションを獲得できます。',
+        heroMultiLevel: 'マルチレベル',
+        heroMultiLevelLabel: '収益ネットワーク',
+        heroRecurring: '継続的',
+        heroRecurringLabel: 'コミッション収入',
+        heroGlobal: 'グローバル',
+        heroGlobalLabel: 'リーチ＆プロモーション',
+        step1Title: 'あなた専用のプロモーションポスターを作成',
+        step1Intro: '他の人にあなたの紹介コードを見てもらうことが、収益への第一歩です。',
+        step1_1: '公式プロモーションポスターテンプレートをダウンロードしてください。',
+        step1_2: '<a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a> に登録して利用し、ダウンロードしたポスターをこのウェブサイトにアップロードしてください。（無料で利用できますが、12345APP を通じた接続が必要です。）',
+        step1_3: 'AI を使用してポスターを編集し、元の紹介コードをあなた専用の紹介コードに置き換えてください。AI を使用してポスターをあなたの現地語に翻訳してください。次のプロンプトを使用してください：<em>「添付のポスターについて、紹介コードを [あなたのコード] に変更し、4K バージョンをエクスポートしてください。」</em>',
+        step1_4: '新しく生成されたポスターをダウンロードし、すぐにオンラインでのプロモーションを開始してください。',
+        channelsTitle: 'オンラインプロモーションチャネル',
+        channelSocial: 'ソーシャルメディア',
+        channelMessenger: 'Telegram / WhatsApp',
+        channelCommunity: 'コミュニティグループ',
+        channelForums: 'フォーラム / コメント',
+        step1Goal: '目標はシンプルです：あなたの紹介コードを通じて、より多くの人に登録してサービスを利用してもらうことです。',
+        step2Title: 'オフラインプロモーション（高露出、高コンバージョン）',
+        step2Intro: 'リーチを拡大したい場合は、物理的なポスタープロモーションを検討してください。人通りの多い場所では、可視性は機会に等しいです。',
+        step2Insight: '<strong>重要なポイント：</strong>露出が多ければ多いほど、スキャンが増え、コミッションがより安定します。',
+        step2SuppliesTitle: '必要なもの',
+        supplyPaper: 'A4 粘着シールペーパー',
+        supplyPrinter: '標準レーザープリンター',
+        supplyFile: '高解像度ポスターファイル',
+        step3Title: 'ポスターを印刷用高解像度にアップグレード',
+        step3Intro: '印刷物が鮮明でプロフェッショナル、信頼性のある仕上がりになるよう、以下の手順に従ってください：',
+        step3_1: '<a href="https://www.photopea.com/" target="_blank" rel="noopener">photopea.com</a> にアクセス',
+        step3_2: '左上のメニューをクリック：Image \u2192 Image Size',
+        step3_3: 'Resolution（DPI）を 350 dpi に設定',
+        step3_4: '画像を保存',
+        step3_5: 'レーザープリンターで印刷',
+        step3Insight: '<strong>プロのヒント：</strong>350 dpi の解像度は視覚品質を大幅に向上させ、スキャン率を高めます。印刷品質が高いほど信頼が生まれ、より多くの人があなたのコードをスキャンするようになります。',
+        strategyTitle: 'コア戦略',
+        strategyDesc: 'これらの原則に従って、紹介収入を最大化しましょう。',
+        strategy1Title: '長期的なリターン',
+        strategy1Desc: '一度のプロモーションで長期的な収入を生み出すことができます。今日の努力は時間とともに報われ続けます。',
+        strategy2Title: 'ネットワークの成長',
+        strategy2Desc: 'あなたが一人を紹介し、その人がさらに他の人を紹介すると、成長は倍増します。自分自身の収入ネットワークを構築しましょう。',
+        strategy3Title: '最大限の露出',
+        strategy3Desc: '露出が多いほど、スキャンが増えます。最良の結果を得るために、オンラインとオフラインの両方でプロモーションしましょう。',
+        strategy4Title: '今すぐ行動',
+        strategy4Desc: '早く行動すればするほど、収入の蓄積が早く始まります。今日から始めましょう。',
+        ctaTitle: 'プロモーションを始める準備はできましたか？',
+        ctaDesc: 'アプリをダウンロードし、紹介コードを取得して、今日から収入ネットワークの構築を始めましょう。',
+        ctaAffiliate: 'アフィリエイトプログラムを見る'
+    },
+
+});

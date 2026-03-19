@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})()</script>
+    <title>Promotion Guide - Root Corporation</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/shared.css">
+    <style>
+/* Page-specific light theme overrides */
+[data-theme="light"] .mkt-step-card { background: rgba(255,255,255,0.7); }
+[data-theme="light"] .mkt-channel-tag { background: rgba(99, 102, 241, 0.06); color: #4f46e5; }
+[data-theme="light"] .mkt-supply-item { background: rgba(255,255,255,0.7); }
+[data-theme="light"] .mkt-substep { background: rgba(255,255,255,0.5); }
+[data-theme="light"] .mkt-strategy-card { background: rgba(255,255,255,0.7); }
+[data-theme="light"] .mkt-insight { background: rgba(99, 102, 241, 0.06); border-color: rgba(99, 102, 241, 0.15); }
+
+/* Hero overrides */
+.hero { min-height: 60vh; padding: 140px 0 80px; text-align: center; }
+.aurora-blob-1 { width: 500px; height: 500px; background: rgba(99, 102, 241, 0.25); top: -10%; left: 20%; }
+.aurora-blob-2 { width: 400px; height: 400px; background: rgba(139, 92, 246, 0.2); bottom: 10%; right: 15%; }
+@keyframes aurora1 { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(60px, -40px) scale(1.1); } 66% { transform: translate(-30px, 30px) scale(0.95); } }
+@keyframes aurora2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-50px, 40px) scale(1.15); } }
+.hero .container { z-index: 1; width: 100%; }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.1; margin-bottom: 20px; }
+.hero p { max-width: 620px; margin: 0 auto 36px; }
+.hero-badge { margin-bottom: 24px; }
+
+/* Hero highlight */
+.hero-highlight {
+    display: flex; justify-content: center; gap: 48px; margin-top: 40px;
+    animation: heroDesc 1s ease-out 0.8s both;
+}
+.hero-highlight-item { text-align: center; }
+.hero-highlight-value {
+    font-family: var(--font-display); font-size: 2.2rem; font-weight: 700;
+    background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-highlight-label { color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; }
+
+/* Section overrides */
+section { padding: 100px 0; }
+.section-header { margin-bottom: 64px; }
+
+/* Step cards (main 3 steps) */
+.mkt-steps { display: flex; flex-direction: column; gap: 72px; }
+
+.mkt-step-card {
+    background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mkt-step-card:hover { border-color: var(--border-strong); box-shadow: var(--glow); }
+
+.mkt-step-header {
+    display: flex; align-items: center; gap: 16px; padding: 28px 32px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, transparent 100%);
+}
+.mkt-step-num {
+    width: 48px; height: 48px; border-radius: 14px; background: var(--gradient-1);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; color: white;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.2); flex-shrink: 0;
+}
+.mkt-step-header h3 {
+    font-family: var(--font-display); font-size: 1.3rem; font-weight: 600;
+}
+
+.mkt-step-body { padding: 32px; }
+
+/* Substeps */
+.mkt-substeps { display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px; }
+.mkt-substep {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 20px 24px; transition: all 0.3s;
+}
+.mkt-substep:hover { border-color: var(--border-strong); }
+.mkt-substep-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: rgba(99, 102, 241, 0.1); color: var(--primary-light);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    font-family: var(--font-display); font-weight: 700; font-size: 0.85rem;
+}
+.mkt-substep-content { flex: 1; }
+.mkt-substep-content p {
+    color: var(--text-muted); font-size: 0.92rem; line-height: 1.7;
+}
+.mkt-substep-content a {
+    color: var(--primary-light); text-decoration: none; border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+    transition: all 0.2s;
+}
+.mkt-substep-content a:hover { border-bottom-color: var(--primary-light); }
+
+/* Channel tags */
+.mkt-channels {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+}
+.mkt-channel-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; border-radius: 12px;
+    background: rgba(99, 102, 241, 0.08); color: var(--primary-light);
+    font-family: var(--font-display); font-size: 0.85rem; font-weight: 500;
+    transition: all 0.3s;
+}
+.mkt-channel-tag:hover { background: rgba(99, 102, 241, 0.15); transform: translateY(-2px); }
+.mkt-channel-tag svg { width: 16px; height: 16px; }
+
+/* Supply list */
+.mkt-supply-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 20px; }
+.mkt-supply-item {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 18px 20px; transition: all 0.3s;
+}
+.mkt-supply-item:hover { border-color: var(--border-strong); }
+.mkt-supply-icon {
+    width: 40px; height: 40px; border-radius: 12px;
+    background: rgba(99, 102, 241, 0.1); color: var(--primary-light);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.mkt-supply-icon svg { width: 20px; height: 20px; }
+.mkt-supply-item span {
+    color: var(--text); font-size: 0.92rem; font-weight: 500;
+}
+
+/* Insight callout */
+.mkt-insight {
+    background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.1);
+    border-radius: 14px; padding: 20px 24px; margin-top: 24px;
+    color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;
+}
+.mkt-insight strong { color: var(--text); }
+
+/* Goal callout */
+.mkt-goal {
+    display: flex; align-items: center; gap: 14px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(99, 102, 241, 0.06) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.15); border-radius: 14px;
+    padding: 20px 24px; margin-top: 24px;
+}
+.mkt-goal-icon {
+    width: 40px; height: 40px; border-radius: 12px;
+    background: rgba(16, 185, 129, 0.12); color: var(--success);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.mkt-goal-icon svg { width: 20px; height: 20px; }
+.mkt-goal p { color: var(--text); font-size: 0.95rem; font-weight: 500; }
+
+/* Strategy section */
+.mkt-strategy-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;
+}
+.mkt-strategy-card {
+    background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 36px 28px; text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mkt-strategy-card:hover { transform: translateY(-4px); border-color: var(--border-strong); box-shadow: var(--glow); }
+.mkt-strategy-icon {
+    width: 56px; height: 56px; border-radius: 16px; background: var(--gradient-1);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; box-shadow: 0 6px 20px rgba(99, 102, 241, 0.2);
+}
+.mkt-strategy-icon svg { width: 24px; height: 24px; color: white; }
+.mkt-strategy-card h3 {
+    font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; margin-bottom: 10px;
+}
+.mkt-strategy-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+
+/* CTA section */
+.mkt-cta-section {
+    text-align: center; padding: 100px 0; position: relative;
+}
+.mkt-cta-section .section-glow {
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+.mkt-cta-section h2 {
+    font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700; margin-bottom: 16px; letter-spacing: -0.02em;
+}
+.mkt-cta-section p {
+    color: var(--text-muted); font-size: 1.05rem; max-width: 520px;
+    margin: 0 auto 40px; line-height: 1.7;
+}
+.mkt-cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero { padding: 120px 0 60px; min-height: auto; }
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 0.95rem; }
+    .hero-highlight { gap: 24px; flex-wrap: wrap; }
+    .hero-highlight-value { font-size: 1.6rem; }
+
+    .mkt-step-header { padding: 20px; flex-wrap: wrap; }
+    .mkt-step-body { padding: 20px; }
+    .mkt-substep { flex-direction: column; gap: 12px; padding: 16px; }
+    .mkt-supply-list { grid-template-columns: 1fr; }
+    .mkt-channels { justify-content: center; }
+    .mkt-strategy-grid { grid-template-columns: 1fr; }
+    .mkt-cta-actions { flex-direction: column; align-items: center; }
+}
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo" data-i18n="footer.brand">Root Corporation</a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="#step-online" data-i18n="mkt.navOnline">Online Promotion</a></li>
+                <li><a href="#step-offline" data-i18n="mkt.navOffline">Offline Promotion</a></li>
+                <li><a href="#step-print" data-i18n="mkt.navPrint">Print Setup</a></li>
+                <li><a href="#strategy" data-i18n="mkt.navStrategy">Strategy</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="index.html#apps" class="nav-cta" data-i18n="nav.getStarted">Get Started</a>
+                <div class="lang-switcher">
+                    <button class="lang-switcher-toggle" aria-label="Select language">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span class="lang-switcher-current">English</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-dropdown">
+                        <button class="lang-option active" data-locale="en">English</button>
+                        <button class="lang-option" data-locale="fil">Filipino</button>
+                        <button class="lang-option" data-locale="fr">Français</button>
+                        <button class="lang-option" data-locale="de">Deutsch</button>
+                        <button class="lang-option" data-locale="id">Bahasa Indonesia</button>
+                        <button class="lang-option" data-locale="it">Italiano</button>
+                        <button class="lang-option" data-locale="jv">Basa Jawa</button>
+                        <button class="lang-option" data-locale="ms">Bahasa Melayu</button>
+                        <button class="lang-option" data-locale="pt">Português</button>
+                        <button class="lang-option" data-locale="es">Español</button>
+                        <button class="lang-option" data-locale="tr">Türkçe</button>
+                        <button class="lang-option" data-locale="vi">Tiếng Việt</button>
+                        <button class="lang-option" data-locale="zh-sg">简体中文（新加坡）</button>
+                        <button class="lang-option" data-locale="zh-tw">繁體中文</button>
+                        <button class="lang-option" data-locale="zh-hk">粵語</button>
+                        <button class="lang-option" data-locale="bn">বাংলা</button>
+                        <button class="lang-option" data-locale="my">မြန်မာဘာသာ</button>
+                        <button class="lang-option" data-locale="km">ភាសាខ្មែរ</button>
+                        <button class="lang-option" data-locale="hi">हिन्दी</button>
+                        <button class="lang-option" data-locale="ja">日本語</button>
+                        <button class="lang-option" data-locale="ko">한국어</button>
+                        <button class="lang-option" data-locale="ru">Русский</button>
+                        <button class="lang-option" data-locale="ta">தமிழ்</button>
+                        <button class="lang-option" data-locale="te">తెలుగు</button>
+                        <button class="lang-option" data-locale="th">ไทย</button>
+                        <button class="lang-option" data-locale="ar">العربية</button>
+                        <button class="lang-option" data-locale="fa">فارسی</button>
+                        <button class="lang-option" data-locale="ur">اردو</button>
+                    </div>
+                </div>
+                <button class="theme-toggle desktop-only" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+            </div>
+            <div class="mobile-nav-actions">
+                <button class="theme-toggle mobile-only" id="theme-toggle-nav" aria-label="Toggle theme">
+                    <svg class="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <button class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria="nav.menu" aria-label="Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="mobile-menu-link" data-i18n="nav.home">Home</a>
+        <a href="#step-online" class="mobile-menu-link" data-i18n="mkt.navOnline">Online Promotion</a>
+        <a href="#step-offline" class="mobile-menu-link" data-i18n="mkt.navOffline">Offline Promotion</a>
+        <a href="#step-print" class="mobile-menu-link" data-i18n="mkt.navPrint">Print Setup</a>
+        <a href="#strategy" class="mobile-menu-link" data-i18n="mkt.navStrategy">Strategy</a>
+        <a href="index.html#apps" class="mobile-menu-link mobile-cta" data-i18n="nav.getStarted">Get Started</a>
+        <div class="lang-switcher">
+            <button class="lang-switcher-toggle" aria-label="Select language">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span class="lang-switcher-current">English</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="lang-dropdown">
+                <button class="lang-option active" data-locale="en">English</button>
+                <button class="lang-option" data-locale="fil">Filipino</button>
+                <button class="lang-option" data-locale="fr">Français</button>
+                <button class="lang-option" data-locale="de">Deutsch</button>
+                <button class="lang-option" data-locale="id">Bahasa Indonesia</button>
+                <button class="lang-option" data-locale="it">Italiano</button>
+                <button class="lang-option" data-locale="jv">Basa Jawa</button>
+                <button class="lang-option" data-locale="ms">Bahasa Melayu</button>
+                <button class="lang-option" data-locale="pt">Português</button>
+                <button class="lang-option" data-locale="es">Español</button>
+                <button class="lang-option" data-locale="tr">Türkçe</button>
+                <button class="lang-option" data-locale="vi">Tiếng Việt</button>
+                <button class="lang-option" data-locale="zh-sg">简体中文（新加坡）</button>
+                <button class="lang-option" data-locale="zh-tw">繁體中文</button>
+                <button class="lang-option" data-locale="zh-hk">粵語</button>
+                <button class="lang-option" data-locale="bn">বাংলা</button>
+                <button class="lang-option" data-locale="my">မြန်မာဘာသာ</button>
+                <button class="lang-option" data-locale="km">ភាសាខ្មែរ</button>
+                <button class="lang-option" data-locale="hi">हिन्दी</button>
+                <button class="lang-option" data-locale="ja">日本語</button>
+                <button class="lang-option" data-locale="ko">한국어</button>
+                <button class="lang-option" data-locale="ru">Русский</button>
+                <button class="lang-option" data-locale="ta">தமிழ்</button>
+                <button class="lang-option" data-locale="te">తెలుగు</button>
+                <button class="lang-option" data-locale="th">ไทย</button>
+                <button class="lang-option" data-locale="ar">العربية</button>
+                <button class="lang-option" data-locale="fa">فارسی</button>
+                <button class="lang-option" data-locale="ur">اردو</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-aurora">
+            <div class="aurora-blob aurora-blob-1"></div>
+            <div class="aurora-blob aurora-blob-2"></div>
+        </div>
+        <div class="hero-grid"></div>
+        <div class="container">
+            <div class="hero-badge" data-i18n="mkt.heroBadge">Promotion Guide</div>
+            <h1 data-i18n-html="mkt.heroTitle">Promote &amp; Earn<br>Recurring Income</h1>
+            <p data-i18n="mkt.heroDesc">Your referral code is more than just a code — it's an opportunity to build recurring income. Earn commissions from your referrals and their referrals too.</p>
+            <div class="hero-highlight">
+                <div class="hero-highlight-item">
+                    <div class="hero-highlight-value" data-i18n="mkt.heroMultiLevel">Multi-Level</div>
+                    <div class="hero-highlight-label" data-i18n="mkt.heroMultiLevelLabel">Earning Network</div>
+                </div>
+                <div class="hero-highlight-item">
+                    <div class="hero-highlight-value" data-i18n="mkt.heroRecurring">Recurring</div>
+                    <div class="hero-highlight-label" data-i18n="mkt.heroRecurringLabel">Commission Income</div>
+                </div>
+                <div class="hero-highlight-item">
+                    <div class="hero-highlight-value" data-i18n="mkt.heroGlobal">Global</div>
+                    <div class="hero-highlight-label" data-i18n="mkt.heroGlobalLabel">Reach &amp; Promote</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 1: Online Promotion -->
+    <section id="step-online">
+        <div class="section-glow" style="background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%); top: 0; right: -15%;"></div>
+        <div class="container">
+            <div class="mkt-steps">
+                <div class="mkt-step-card reveal">
+                    <div class="mkt-step-header">
+                        <div class="mkt-step-num">1</div>
+                        <h3 data-i18n="mkt.step1Title">Create Your Exclusive Promotional Poster</h3>
+                    </div>
+                    <div class="mkt-step-body">
+                        <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 0.95rem; line-height: 1.7;" data-i18n="mkt.step1Intro">Getting others to see your referral code is the first step toward earning.</p>
+                        <div class="mkt-substeps">
+                            <div class="mkt-substep">
+                                <div class="mkt-substep-icon">1</div>
+                                <div class="mkt-substep-content">
+                                    <p data-i18n="mkt.step1_1">Download the official promotional poster template.</p>
+                                </div>
+                            </div>
+                            <div class="mkt-substep">
+                                <div class="mkt-substep-icon">2</div>
+                                <div class="mkt-substep-content">
+                                    <p data-i18n-html="mkt.step1_2">Register and use <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, upload the downloaded poster to this website. (Free to use, but requires connection through 12345APP.)</p>
+                                </div>
+                            </div>
+                            <div class="mkt-substep">
+                                <div class="mkt-substep-icon">3</div>
+                                <div class="mkt-substep-content">
+                                    <p data-i18n-html="mkt.step1_3">Use AI to edit the poster and replace the original referral code with your own exclusive referral code. Use AI to translate the poster to your local language. Use the following prompt: <em>&quot;For the attached poster, change the referral code to [Your Code], and export the 4K version.&quot;</em></p>
+                                </div>
+                            </div>
+                            <div class="mkt-substep">
+                                <div class="mkt-substep-icon">4</div>
+                                <div class="mkt-substep-content">
+                                    <p data-i18n="mkt.step1_4">Download the newly generated poster and immediately start promoting it online.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style="font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;" data-i18n="mkt.channelsTitle">Online Promotion Channels</h4>
+                        <div class="mkt-channels">
+                            <div class="mkt-channel-tag">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                                <span data-i18n="mkt.channelSocial">Social Media</span>
+                            </div>
+                            <div class="mkt-channel-tag">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                <span data-i18n="mkt.channelMessenger">Telegram / WhatsApp</span>
+                            </div>
+                            <div class="mkt-channel-tag">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span data-i18n="mkt.channelCommunity">Community Groups</span>
+                            </div>
+                            <div class="mkt-channel-tag">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                                <span data-i18n="mkt.channelForums">Forums / Comments</span>
+                            </div>
+                        </div>
+
+                        <div class="mkt-goal">
+                            <div class="mkt-goal-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 12l-4-4-4 4"/><path d="M12 16V8"/></svg>
+                            </div>
+                            <p data-i18n="mkt.step1Goal">Your goal is simple: Get more people to register and use the service through your referral code.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 2: Offline Promotion -->
+    <section id="step-offline">
+        <div class="section-glow" style="background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%); bottom: 0; left: -15%;"></div>
+        <div class="container">
+            <div class="mkt-steps">
+                <div class="mkt-step-card reveal">
+                    <div class="mkt-step-header">
+                        <div class="mkt-step-num">2</div>
+                        <h3 data-i18n="mkt.step2Title">Offline Promotion (High Exposure, High Conversion)</h3>
+                    </div>
+                    <div class="mkt-step-body">
+                        <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 0.95rem; line-height: 1.7;" data-i18n="mkt.step2Intro">If you want to expand your reach, consider physical poster promotion. In high-traffic areas, visibility equals opportunity.</p>
+
+                        <div class="mkt-insight" data-i18n-html="mkt.step2Insight"><strong>Key insight:</strong> The more exposure you get, the more scans you receive — and the more stable your commissions become.</div>
+
+                        <h4 style="font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; margin: 28px 0 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;" data-i18n="mkt.step2SuppliesTitle">What You'll Need</h4>
+                        <div class="mkt-supply-list">
+                            <div class="mkt-supply-item">
+                                <div class="mkt-supply-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M2 7h20"/></svg>
+                                </div>
+                                <span data-i18n="mkt.supplyPaper">A4 Adhesive Sticker Paper</span>
+                            </div>
+                            <div class="mkt-supply-item">
+                                <div class="mkt-supply-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M6 18h12"/><path d="M6 6h12"/></svg>
+                                </div>
+                                <span data-i18n="mkt.supplyPrinter">Standard Laser Printer</span>
+                            </div>
+                            <div class="mkt-supply-item">
+                                <div class="mkt-supply-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                </div>
+                                <span data-i18n="mkt.supplyFile">High-Resolution Poster File</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 3: High-Resolution Print -->
+    <section id="step-print">
+        <div class="section-glow" style="background: radial-gradient(circle, rgba(34, 211, 238, 0.2) 0%, transparent 70%); top: 10%; right: -10%;"></div>
+        <div class="container">
+            <div class="mkt-steps">
+                <div class="mkt-step-card reveal">
+                    <div class="mkt-step-header">
+                        <div class="mkt-step-num">3</div>
+                        <h3 data-i18n="mkt.step3Title">Upgrade Your Poster to High-Resolution for Printing</h3>
+                    </div>
+                    <div class="mkt-step-body">
+                        <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 0.95rem; line-height: 1.7;" data-i18n="mkt.step3Intro">To ensure your printed materials look clear, professional, and trustworthy, follow these steps:</p>
+                        <div class="mkt-substeps">
+                            <div class="mkt-substep">
+                                <div class="mkt-substep-icon">1</div>
+                                <div class="mkt-substep-content">
+                                    <p data-i18n-html="mkt.step3_1">Go to <a href="https://www.photopea.com/" target="_blank" rel="noopener">photopea.com</a></p>
+                                </div>
+                            </div>
+                            <div class="mkt-substep">
+                                <div class="mkt-substep-icon">2</div>
+                                <div class="mkt-substep-content">
+                                    <p data-i18n="mkt.step3_2">Click the top-left menu: Image &rarr; Image Size</p>
+                                </div>
+                            </div>
+                            <div class="mkt-substep">
+                                <div class="mkt-substep-icon">3</div>
+                                <div class="mkt-substep-content">
+                                    <p data-i18n="mkt.step3_3">Set the Resolution (DPI) to 350 dpi</p>
+                                </div>
+                            </div>
+                            <div class="mkt-substep">
+                                <div class="mkt-substep-icon">4</div>
+                                <div class="mkt-substep-content">
+                                    <p data-i18n="mkt.step3_4">Save the image</p>
+                                </div>
+                            </div>
+                            <div class="mkt-substep">
+                                <div class="mkt-substep-icon">5</div>
+                                <div class="mkt-substep-content">
+                                    <p data-i18n="mkt.step3_5">Print using a laser printer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mkt-insight" data-i18n-html="mkt.step3Insight"><strong>Pro tip:</strong> A 350 dpi resolution significantly improves visual quality and increases scanning rates. Higher print quality builds trust and encourages more people to scan your code.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Strategy -->
+    <section id="strategy">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-i18n="mkt.strategyTitle">Core Strategy</h2>
+                <p data-i18n="mkt.strategyDesc">Follow these principles to maximize your referral income.</p>
+            </div>
+            <div class="mkt-strategy-grid">
+                <div class="mkt-strategy-card reveal reveal-delay-1">
+                    <div class="mkt-strategy-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                    </div>
+                    <h3 data-i18n="mkt.strategy1Title">Long-Term Returns</h3>
+                    <p data-i18n="mkt.strategy1Desc">One promotion can generate long-term income. Your efforts today continue to pay off over time.</p>
+                </div>
+                <div class="mkt-strategy-card reveal reveal-delay-2">
+                    <div class="mkt-strategy-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 data-i18n="mkt.strategy2Title">Network Growth</h3>
+                    <p data-i18n="mkt.strategy2Desc">When you refer one person and they refer others, growth multiplies. Build your own income network.</p>
+                </div>
+                <div class="mkt-strategy-card reveal reveal-delay-3">
+                    <div class="mkt-strategy-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <h3 data-i18n="mkt.strategy3Title">Maximum Exposure</h3>
+                    <p data-i18n="mkt.strategy3Desc">More exposure leads to more scans. Promote both online and offline for the best results.</p>
+                </div>
+                <div class="mkt-strategy-card reveal reveal-delay-4">
+                    <div class="mkt-strategy-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h3 data-i18n="mkt.strategy4Title">Act Now</h3>
+                    <p data-i18n="mkt.strategy4Desc">The sooner you act, the sooner your income begins to accumulate. Start today.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="mkt-cta-section">
+        <div class="section-glow"></div>
+        <div class="container reveal">
+            <h2 data-i18n="mkt.ctaTitle">Ready to Start Promoting?</h2>
+            <p data-i18n="mkt.ctaDesc">Download the app, get your referral code, and start building your income network today.</p>
+            <div class="mkt-cta-actions">
+                <a href="index.html#apps" class="btn btn-primary" data-i18n="nav.getStarted">Get Started</a>
+                <a href="affiliate.html" class="btn btn-secondary" data-i18n="mkt.ctaAffiliate">View Affiliate Program</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" data-i18n="footer.brand">Root Corporation</a>
+                    <p style="margin-top: 16px;" data-i18n="footer.brandDescription">Protect your digital privacy with our advanced privacy protection services. Trusted by users worldwide.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.solutions">Solutions</h4>
+                    <ul id="footer-apps">{{FOOTER_APPS}}</ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.company">Company</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                        <li><a href="index.html#features" data-i18n="nav.features">Features</a></li>
+                        <li><a href="affiliate.html" data-i18n="footer.affiliate">Affiliate</a></li>
+                        <li><a href="index.html#contact" data-i18n="footer.support">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.contactUs">Contact Us</h4>
+                    <ul style="color: var(--text-muted); font-size: 0.88rem;">
+                        <li style="padding: 7px 0;"><a href="mailto:developer@root-corporation.com">developer@root-corporation.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="border-top: 1px solid var(--border); padding-top: 30px; margin-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                <p style="color: var(--text-dim); font-size: 0.82rem;" data-i18n="footer.copyright">&copy; 2025 Root Corporation Pty Ltd. All rights reserved.</p>
+                <p style="color: var(--text-dim); font-size: 0.82rem;" data-i18n="footer.abn">ABN 34 686 229 532 &middot; Australia</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+// Mobile menu
+(function() {
+    var menuBtn = document.getElementById('mobile-menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    if (!menuBtn || !menu) return;
+    menuBtn.addEventListener('click', function() {
+        var isOpen = menu.classList.contains('active');
+        menu.classList.toggle('active', !isOpen);
+        document.body.style.overflow = isOpen ? '' : 'hidden';
+    });
+    menu.addEventListener('click', function(e) {
+        if (e.target.classList.contains('mobile-menu-link')) {
+            menu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+})();
+
+// Scroll reveal
+(function() {
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+})();
+
+// Nav scroll effect
+(function() {
+    var nav = document.querySelector('nav');
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                nav.classList.toggle('scrolled', window.scrollY > 50);
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+})();
+    </script>
+
+    <!-- i18n Scripts -->
+    <script src="assets/i18n.js"></script>
+    <script src="assets/locales/en.js"></script>
+    <script src="assets/locales/zh-sg.js"></script>
+    <script src="assets/locales/zh-tw.js"></script>
+    <script src="assets/locales/zh-hk.js"></script>
+    <script src="assets/locales/hi.js"></script>
+    <script src="assets/locales/ta.js"></script>
+    <script src="assets/locales/te.js"></script>
+    <script src="assets/locales/bn.js"></script>
+    <script src="assets/locales/ur.js"></script>
+    <script src="assets/locales/id.js"></script>
+    <script src="assets/locales/ms.js"></script>
+    <script src="assets/locales/jv.js"></script>
+    <script src="assets/locales/vi.js"></script>
+    <script src="assets/locales/th.js"></script>
+    <script src="assets/locales/km.js"></script>
+    <script src="assets/locales/my.js"></script>
+    <script src="assets/locales/fil.js"></script>
+    <script src="assets/locales/ja.js"></script>
+    <script src="assets/locales/ko.js"></script>
+    <script src="assets/locales/fr.js"></script>
+    <script src="assets/locales/es.js"></script>
+    <script src="assets/locales/pt.js"></script>
+    <script src="assets/locales/it.js"></script>
+    <script src="assets/locales/de.js"></script>
+    <script src="assets/locales/ru.js"></script>
+    <script src="assets/locales/tr.js"></script>
+    <script src="assets/locales/ar.js"></script>
+    <script src="assets/locales/fa.js"></script>
+    <script>I18n.init();</script>
+
+    <!-- Theme toggle -->
+    <script>
+(function() {
+    var toggle = document.getElementById('theme-toggle');
+    var toggleMobile = document.getElementById('theme-toggle-nav');
+    var html = document.documentElement;
+    function getSystemTheme() {
+        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    function applyTheme(theme) {
+        html.setAttribute('data-theme', theme);
+    }
+    var saved = localStorage.getItem('theme');
+    applyTheme(saved || getSystemTheme());
+    function handleToggle() {
+        var current = html.getAttribute('data-theme') || 'dark';
+        var next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem('theme', next);
+    }
+    if (toggle) toggle.addEventListener('click', handleToggle);
+    if (toggleMobile) toggleMobile.addEventListener('click', handleToggle);
+})();
+    </script>
+</body>
+</html>

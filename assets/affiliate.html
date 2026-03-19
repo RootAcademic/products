@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})()</script>
+    <title>Affiliate Program - Root Corporation</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/shared.css">
+    <style>
+/* Page-specific light theme overrides */
+[data-theme="light"] .aff-room-block { background: rgba(255,255,255,0.7); }
+[data-theme="light"] .aff-matrix th { background: rgba(99, 102, 241, 0.08); }
+[data-theme="light"] .aff-matrix td { border-color: rgba(0,0,0,0.06); }
+[data-theme="light"] .rate-cell.active { background: rgba(99, 102, 241, 0.08); }
+[data-theme="light"] .rate-cell.locked { background: rgba(241, 245, 249, 0.8); }
+[data-theme="light"] .aff-step { background: rgba(255,255,255,0.7); }
+[data-theme="light"] .aff-payout-card { background: rgba(255,255,255,0.7); }
+[data-theme="light"] .aff-faq-item { background: rgba(255,255,255,0.7); }
+[data-theme="light"] .aff-insight { background: rgba(99, 102, 241, 0.06); border-color: rgba(99, 102, 241, 0.15); }
+[data-theme="light"] .aff-example-card { background: rgba(255,255,255,0.7); }
+
+/* Hero overrides */
+.hero { min-height: 60vh; padding: 140px 0 80px; text-align: center; }
+.aurora-blob-1 { width: 500px; height: 500px; background: rgba(99, 102, 241, 0.25); top: -10%; left: 20%; }
+.aurora-blob-2 { width: 400px; height: 400px; background: rgba(139, 92, 246, 0.2); bottom: 10%; right: 15%; }
+@keyframes aurora1 { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(60px, -40px) scale(1.1); } 66% { transform: translate(-30px, 30px) scale(0.95); } }
+@keyframes aurora2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-50px, 40px) scale(1.15); } }
+.hero .container { z-index: 1; width: 100%; }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.1; margin-bottom: 20px; }
+.hero p { max-width: 600px; margin: 0 auto 36px; }
+.hero-badge { margin-bottom: 24px; }
+
+/* Hero stats */
+.hero-stats {
+    display: flex; justify-content: center; gap: 48px; margin-top: 40px;
+    animation: heroDesc 1s ease-out 0.8s both;
+}
+.hero-stat-value {
+    font-family: var(--font-display); font-size: 2.5rem; font-weight: 700;
+    background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-stat-label { color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; }
+
+/* Section overrides */
+section { padding: 100px 0; }
+.section-header { margin-bottom: 64px; }
+
+/* How It Works */
+.aff-steps {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; margin-bottom: 48px;
+    padding: 4px 0 20px;
+}
+.aff-step {
+    background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 44px 24px; text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative;
+    min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.aff-step:hover { transform: translateY(-4px); border-color: var(--border-strong); box-shadow: var(--glow); }
+.aff-step-num {
+    width: 48px; height: 48px; border-radius: 14px; background: var(--gradient-1);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; color: white;
+    margin: 0 auto 20px; box-shadow: 0 6px 20px rgba(99, 102, 241, 0.2);
+}
+.aff-step h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; }
+.aff-step p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+
+/* Room Blocks */
+.aff-rooms { display: flex; flex-direction: column; gap: 48px; }
+.aff-room-block {
+    background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.aff-room-block:hover { border-color: var(--border-strong); box-shadow: var(--glow); }
+a.aff-room-header { text-decoration: none; color: inherit; cursor: pointer; }
+.aff-room-header {
+    display: flex; align-items: center; gap: 16px; padding: 28px 32px;
+    border-bottom: 1px solid var(--border); background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, transparent 100%);
+    transition: background 0.3s;
+}
+a.aff-room-header:hover { background: linear-gradient(135deg, rgba(99, 102, 241, 0.14) 0%, transparent 100%); }
+.aff-room-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--bg-card-solid);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+    box-shadow: 0 0 0 3px var(--bg-card-solid), 0 2px 8px rgba(0,0,0,0.15);
+}
+.aff-room-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
+.aff-room-icon svg { width: 24px; height: 24px; color: var(--primary-light); }
+.aff-room-header h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; }
+
+.aff-tables { padding: 32px; display: flex; flex-direction: column; gap: 36px; }
+.aff-tables h4 {
+    font-family: var(--font-display); font-size: 1rem; font-weight: 600;
+    margin-bottom: 16px; color: var(--text-muted);
+}
+
+/* Tables */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; border: 1px solid var(--border); }
+.table-scroll::-webkit-scrollbar { height: 4px; }
+.table-scroll::-webkit-scrollbar-track { background: transparent; }
+.table-scroll::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+.aff-matrix { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.aff-matrix th {
+    padding: 14px 16px; text-align: center; font-family: var(--font-display);
+    font-weight: 600; font-size: 0.82rem; color: var(--text-muted);
+    background: rgba(99, 102, 241, 0.05); border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+.aff-matrix th:first-child { text-align: left; min-width: 120px; }
+.aff-matrix th small { display: block; font-weight: 400; font-size: 0.72rem; color: var(--text-dim); margin-top: 2px; }
+.aff-matrix td {
+    padding: 14px 16px; text-align: center; border-bottom: 1px solid rgba(99, 102, 241, 0.06);
+    transition: background 0.2s;
+}
+.aff-matrix td:first-child { text-align: left; }
+.aff-matrix tbody tr:last-child td { border-bottom: none; }
+.aff-matrix tbody tr:hover td { background: rgba(99, 102, 241, 0.03); }
+
+.rate-cell { font-family: var(--font-display); font-weight: 600; border-radius: 0; }
+.rate-cell.active { color: var(--success); background: rgba(16, 185, 129, 0.08); font-size: 0.95rem; }
+.rate-cell.locked { color: var(--text-dim); background: rgba(100, 116, 139, 0.05); }
+.rate-cell.locked svg { opacity: 0.4; vertical-align: middle; }
+.rate-total {
+    font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+    color: var(--primary-light);
+}
+
+/* Tier badges */
+.tier-badge {
+    display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px;
+    border-radius: 50px; font-family: var(--font-display); font-weight: 600;
+    font-size: 0.82rem; white-space: nowrap;
+}
+.tier-icon { width: 14px; height: 14px; flex-shrink: 0; }
+.tier-bronze { background: rgba(205, 127, 50, 0.12); color: #cd7f32; border: 1px solid rgba(205, 127, 50, 0.2); }
+.tier-silver { background: rgba(192, 192, 192, 0.12); color: #c0c0c0; border: 1px solid rgba(192, 192, 192, 0.2); }
+.tier-gold { background: rgba(255, 215, 0, 0.12); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.2); }
+.tier-platinum { background: rgba(160, 224, 224, 0.12); color: #a0e0e0; border: 1px solid rgba(160, 224, 224, 0.2); }
+.tier-diamond { background: rgba(244, 114, 182, 0.12); color: #f472b6; border: 1px solid rgba(244, 114, 182, 0.2); }
+
+[data-theme="light"] .tier-bronze { color: #8B6914; }
+[data-theme="light"] .tier-silver { color: #607D8B; }
+[data-theme="light"] .tier-gold { color: #B8860B; }
+[data-theme="light"] .tier-platinum { color: #00838F; }
+[data-theme="light"] .tier-diamond { color: #C2185B; }
+
+/* Requirement table */
+.aff-req { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.aff-req th {
+    padding: 14px 16px; text-align: left; font-family: var(--font-display);
+    font-weight: 600; font-size: 0.82rem; color: var(--text-muted);
+    background: rgba(99, 102, 241, 0.05); border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+.aff-req td {
+    padding: 14px 16px; border-bottom: 1px solid rgba(99, 102, 241, 0.06);
+    font-size: 0.9rem;
+}
+.aff-req tbody tr:last-child td { border-bottom: none; }
+.aff-req tbody tr:hover td { background: rgba(99, 102, 241, 0.03); }
+.aff-req .or-badge {
+    display: inline-block; padding: 2px 8px; background: rgba(99, 102, 241, 0.1);
+    border-radius: 4px; font-size: 0.72rem; font-weight: 600; color: var(--primary-light);
+    margin-left: 4px; vertical-align: middle;
+}
+
+/* Insight callout */
+.aff-insight {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 16px;
+    padding: 24px 28px; margin-top: 24px; display: flex; align-items: flex-start; gap: 16px;
+}
+.aff-insight svg { flex-shrink: 0; color: var(--primary-light); margin-top: 2px; }
+.aff-insight p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; }
+.aff-insight strong { color: var(--text); }
+
+/* Earning Examples — horizontal scroll */
+.aff-examples-scroll {
+    display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 4px 0 20px; -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent;
+}
+.aff-examples-scroll::-webkit-scrollbar { height: 6px; }
+.aff-examples-scroll::-webkit-scrollbar-track { background: transparent; }
+.aff-examples-scroll::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+.aff-example-card {
+    flex: 0 0 340px; scroll-snap-align: start;
+    display: flex; flex-direction: column;
+    background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 32px; transition: all 0.3s;
+}
+.aff-example-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.aff-example-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.aff-example-title {
+    font-family: var(--font-display); font-size: 0.85rem; font-weight: 600;
+    color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;
+}
+.aff-example-badge {
+    font-size: 0.72rem; font-weight: 600; padding: 4px 10px; border-radius: 20px;
+    background: rgba(99, 102, 241, 0.1); color: var(--primary-light); letter-spacing: 0.02em;
+}
+.aff-example-value {
+    font-family: var(--font-display); font-size: 2.2rem; font-weight: 700;
+    background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 16px;
+}
+.aff-example-scenario {
+    color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 16px;
+    padding-bottom: 16px; border-bottom: 1px solid var(--border); flex: 1;
+}
+.aff-example-scenario strong { color: var(--text); }
+.aff-example-breakdown { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.aff-example-breakdown li {
+    display: flex; justify-content: space-between; font-size: 0.84rem; color: var(--text-muted);
+    padding: 4px 0;
+}
+.aff-example-breakdown li span:last-child { font-weight: 600; color: var(--text); font-family: var(--font-display); }
+.aff-example-breakdown li.locked { opacity: 0.35; }
+.aff-example-total {
+    display: flex; justify-content: space-between; margin-top: 12px; padding-top: 12px;
+    border-top: 1px solid var(--border); font-family: var(--font-display); font-weight: 700; font-size: 0.95rem;
+}
+.aff-scroll-hint {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    color: var(--text-dim); font-size: 0.82rem; margin-top: 12px;
+}
+.aff-scroll-hint svg { animation: scrollHintBounce 1.5s ease-in-out infinite; }
+@keyframes scrollHintBounce { 0%,100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+
+/* Payout */
+.aff-payout-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.aff-payout-card {
+    background: var(--bg-card); backdrop-filter: blur(20px); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px; text-align: center; transition: all 0.3s;
+}
+.aff-payout-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.aff-payout-icon { margin-bottom: 16px; color: var(--primary-light); }
+.aff-payout-label { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+.aff-payout-value { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; }
+
+/* FAQ */
+.aff-faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.aff-faq-item {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+    overflow: hidden; transition: all 0.3s;
+}
+.aff-faq-item:hover { border-color: var(--border-strong); }
+.aff-faq-number {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--primary); color: #fff; font-size: 0.8rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; line-height: 1;
+}
+.aff-faq-q {
+    padding: 20px 24px; cursor: pointer; display: flex; justify-content: flex-start; align-items: center;
+    font-family: var(--font-display); font-weight: 500; font-size: 0.95rem;
+    user-select: none; transition: color 0.2s; gap: 14px;
+}
+.aff-faq-q:hover { color: var(--primary-light); }
+.aff-faq-q svg.aff-faq-chevron { flex-shrink: 0; margin-left: auto; transition: transform 0.3s; color: var(--text-dim); }
+.aff-faq-item.open .aff-faq-q svg.aff-faq-chevron { transform: rotate(180deg); }
+.aff-faq-a {
+    max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.aff-faq-item.open .aff-faq-a { max-height: 400px; }
+.aff-faq-a-inner { padding: 0 24px 20px; color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; }
+
+/* CTA + QR Combined */
+.aff-cta-section {
+    display: flex; align-items: center; gap: 64px; max-width: 960px; margin: 0 auto;
+}
+.aff-cta-content { flex: 1; text-align: left; }
+.aff-cta-content h2 {
+    font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700; margin-bottom: 16px; letter-spacing: -0.02em;
+}
+.aff-cta-content p {
+    color: var(--text-muted); font-size: 1.05rem; max-width: 420px; margin-bottom: 32px; line-height: 1.7;
+}
+html[dir="rtl"] .aff-cta-content { text-align: right; }
+
+.aff-qr-card {
+    flex-shrink: 0; display: flex; flex-direction: column; align-items: center;
+    background: var(--bg-card); backdrop-filter: blur(20px);
+    border: 1px solid var(--border); border-radius: 24px;
+    padding: 40px; gap: 20px; position: relative; overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.aff-qr-card::before {
+    content: ''; position: absolute; inset: -1px; border-radius: 24px; padding: 1px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.15), rgba(34, 211, 238, 0.2));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.aff-qr-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15); }
+
+.aff-qr-code { position: relative; padding: 16px; background: white; border-radius: 16px; }
+.aff-qr-code canvas {
+    border-radius: 8px; image-rendering: pixelated; display: block;
+}
+.aff-qr-label {
+    font-family: var(--font-display); font-weight: 600; font-size: 0.95rem;
+    color: var(--text); margin: 0; text-align: center;
+}
+.aff-qr-url {
+    font-size: 0.78rem; color: var(--text-dim); margin: 0;
+    word-break: break-all; max-width: 280px; text-align: center;
+}
+
+/* RTL */
+html[dir="rtl"] .aff-insight { flex-direction: row-reverse; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .aff-steps { grid-template-columns: repeat(2, 1fr); }
+    .footer-content { grid-template-columns: 1fr 1fr; }
+    .hero-stats { gap: 32px; }
+    .hero-stat-value { font-size: 2rem; }
+}
+
+@media (max-width: 768px) {
+    section { padding: 72px 0; }
+    .section-header { margin-bottom: 40px; }
+    .section-header h2 { font-size: 1.5rem; }
+    .hero { min-height: auto; padding: 120px 0 64px; }
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 1rem; }
+    .hero-stats { flex-direction: column; gap: 20px; }
+    .hero-stat-value { font-size: 1.8rem; }
+    .aff-room-header { padding: 20px 20px; }
+    .aff-tables { padding: 20px; gap: 28px; }
+    .aff-example-card { flex: 0 0 300px; }
+    .aff-example-value { font-size: 1.8rem; }
+    .aff-payout-grid { grid-template-columns: repeat(2, 1fr); }
+    .aff-insight { flex-direction: column; }
+    html[dir="rtl"] .aff-insight { flex-direction: column; }
+    .aff-cta-section { flex-direction: column; gap: 40px; text-align: center; }
+    .aff-cta-content { text-align: center; }
+    .aff-cta-content p { margin-left: auto; margin-right: auto; }
+    html[dir="rtl"] .aff-cta-content { text-align: center; }
+}
+
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.7rem; }
+    .aff-steps { grid-template-columns: 1fr; }
+    .aff-payout-grid { grid-template-columns: 1fr; }
+    .aff-example-card { flex: 0 0 280px; padding: 24px; }
+}
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo" data-i18n="footer.brand">Root Corporation</a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="#how-it-works" data-i18n="aff.navHow">How It Works</a></li>
+                <li><a href="#commission" data-i18n="aff.navCommission">Commission</a></li>
+                <li><a href="#examples" data-i18n="aff.navExamples">Examples</a></li>
+                <li><a href="#payout" data-i18n="aff.navPayout">Payout</a></li>
+                <li><a href="#faq" data-i18n="aff.navFaq">FAQ</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="index.html#contact" class="nav-cta" data-i18n="affiliate.becomePartner">Become a Partner</a>
+                <div class="lang-switcher">
+                    <button class="lang-switcher-toggle" aria-label="Select language">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span class="lang-switcher-current">English</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-dropdown">
+                        <button class="lang-option active" data-locale="en">English</button>
+                        <button class="lang-option" data-locale="fil">Filipino</button>
+                        <button class="lang-option" data-locale="fr">Français</button>
+                        <button class="lang-option" data-locale="de">Deutsch</button>
+                        <button class="lang-option" data-locale="id">Bahasa Indonesia</button>
+                        <button class="lang-option" data-locale="it">Italiano</button>
+                        <button class="lang-option" data-locale="jv">Basa Jawa</button>
+                        <button class="lang-option" data-locale="ms">Bahasa Melayu</button>
+                        <button class="lang-option" data-locale="pt">Português</button>
+                        <button class="lang-option" data-locale="es">Español</button>
+                        <button class="lang-option" data-locale="tr">Türkçe</button>
+                        <button class="lang-option" data-locale="vi">Tiếng Việt</button>
+                        <button class="lang-option" data-locale="zh-sg">简体中文（新加坡）</button>
+                        <button class="lang-option" data-locale="zh-tw">繁體中文</button>
+                        <button class="lang-option" data-locale="zh-hk">粵語</button>
+                        <button class="lang-option" data-locale="bn">বাংলা</button>
+                        <button class="lang-option" data-locale="my">မြန်မာဘာသာ</button>
+                        <button class="lang-option" data-locale="km">ភាសាខ្មែរ</button>
+                        <button class="lang-option" data-locale="hi">हिन्दी</button>
+                        <button class="lang-option" data-locale="ja">日本語</button>
+                        <button class="lang-option" data-locale="ko">한국어</button>
+                        <button class="lang-option" data-locale="ru">Русский</button>
+                        <button class="lang-option" data-locale="ta">தமிழ்</button>
+                        <button class="lang-option" data-locale="te">తెలుగు</button>
+                        <button class="lang-option" data-locale="th">ไทย</button>
+                        <button class="lang-option" data-locale="ar">العربية</button>
+                        <button class="lang-option" data-locale="fa">فارسی</button>
+                        <button class="lang-option" data-locale="ur">اردو</button>
+                    </div>
+                </div>
+                <button class="theme-toggle desktop-only" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+            </div>
+            <div class="mobile-nav-actions">
+                <button class="theme-toggle mobile-only" id="theme-toggle-nav" aria-label="Toggle theme">
+                    <svg class="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <button class="mobile-menu-btn" id="mobile-menu-btn" data-i18n-aria="nav.menu" aria-label="Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="mobile-menu-link" data-i18n="nav.home">Home</a>
+        <a href="#how-it-works" class="mobile-menu-link" data-i18n="aff.navHow">How It Works</a>
+        <a href="#commission" class="mobile-menu-link" data-i18n="aff.navCommission">Commission</a>
+        <a href="#examples" class="mobile-menu-link" data-i18n="aff.navExamples">Examples</a>
+        <a href="#payout" class="mobile-menu-link" data-i18n="aff.navPayout">Payout</a>
+        <a href="#faq" class="mobile-menu-link" data-i18n="aff.navFaq">FAQ</a>
+        <div class="lang-switcher">
+            <button class="lang-switcher-toggle" aria-label="Select language">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span class="lang-switcher-current">English</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="lang-dropdown">
+                <button class="lang-option active" data-locale="en">English</button>
+                <button class="lang-option" data-locale="fil">Filipino</button>
+                <button class="lang-option" data-locale="fr">Français</button>
+                <button class="lang-option" data-locale="de">Deutsch</button>
+                <button class="lang-option" data-locale="id">Bahasa Indonesia</button>
+                <button class="lang-option" data-locale="it">Italiano</button>
+                <button class="lang-option" data-locale="jv">Basa Jawa</button>
+                <button class="lang-option" data-locale="ms">Bahasa Melayu</button>
+                <button class="lang-option" data-locale="pt">Português</button>
+                <button class="lang-option" data-locale="es">Español</button>
+                <button class="lang-option" data-locale="tr">Türkçe</button>
+                <button class="lang-option" data-locale="vi">Tiếng Việt</button>
+                <button class="lang-option" data-locale="zh-sg">简体中文（新加坡）</button>
+                <button class="lang-option" data-locale="zh-tw">繁體中文</button>
+                <button class="lang-option" data-locale="zh-hk">粵語</button>
+                <button class="lang-option" data-locale="bn">বাংলা</button>
+                <button class="lang-option" data-locale="my">မြန်မာဘာသာ</button>
+                <button class="lang-option" data-locale="km">ភាសាខ្មែរ</button>
+                <button class="lang-option" data-locale="hi">हिन्दी</button>
+                <button class="lang-option" data-locale="ja">日本語</button>
+                <button class="lang-option" data-locale="ko">한국어</button>
+                <button class="lang-option" data-locale="ru">Русский</button>
+                <button class="lang-option" data-locale="ta">தமிழ்</button>
+                <button class="lang-option" data-locale="te">తెలుగు</button>
+                <button class="lang-option" data-locale="th">ไทย</button>
+                <button class="lang-option" data-locale="ar">العربية</button>
+                <button class="lang-option" data-locale="fa">فارسی</button>
+                <button class="lang-option" data-locale="ur">اردو</button>
+            </div>
+        </div>
+        <a href="index.html#contact" class="mobile-cta mobile-menu-link" data-i18n="affiliate.becomePartner">Become a Partner</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-aurora">
+            <div class="aurora-blob aurora-blob-1"></div>
+            <div class="aurora-blob aurora-blob-2"></div>
+        </div>
+        <div class="hero-grid"></div>
+        <div class="container">
+            <div class="hero-badge" data-i18n="aff.heroBadge">Partner Network</div>
+            <h1 data-i18n-html="aff.heroTitle">Build Your<br>Affiliate Income</h1>
+            <p data-i18n="aff.heroDesc">Join our multi-tier affiliate program and earn commissions on every referral. The more you grow your network, the more earning levels you unlock.</p>
+            <div class="hero-stats">
+                <div>
+                    <div class="hero-stat-value" data-i18n="aff.heroRate">20%+</div>
+                    <div class="hero-stat-label" data-i18n="aff.heroRateLabel">Starting Commission</div>
+                </div>
+                <div>
+                    <div class="hero-stat-value">5</div>
+                    <div class="hero-stat-label" data-i18n="aff.heroTiersLabel">Earning Tiers</div>
+                </div>
+                <div>
+                    <div class="hero-stat-value" data-i18n="aff.heroPayoutValue">Instant</div>
+                    <div class="hero-stat-label" data-i18n="aff.heroPayoutLabel">Wallet Credit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-i18n="aff.howTitle">How It Works</h2>
+                <p data-i18n="aff.howDesc">Start earning in four simple steps.</p>
+            </div>
+            <div class="aff-steps">
+                <div class="aff-step reveal reveal-delay-1">
+                    <div class="aff-step-num">1</div>
+                    <h3 data-i18n="aff.step1Title">Register & Get Your Code</h3>
+                    <p data-i18n="aff.step1Desc">Sign up for any of our services. You automatically receive a unique 6-character referral code that you can share with anyone.</p>
+                </div>
+                <div class="aff-step reveal reveal-delay-2">
+                    <div class="aff-step-num">2</div>
+                    <h3 data-i18n="aff.step2Title">Share & Grow Your Network</h3>
+                    <p data-i18n="aff.step2Desc">Share your referral code. When someone registers using your code, they become part of your network. As your network grows, you advance through tiers and unlock deeper earning levels.</p>
+                </div>
+                <div class="aff-step reveal reveal-delay-3">
+                    <div class="aff-step-num">3</div>
+                    <h3 data-i18n="aff.step3Title">Earn Multi-Level Commissions</h3>
+                    <p data-i18n="aff.step3Desc">When anyone in your network makes a purchase, you earn a commission. Higher tiers let you earn from more levels deep in your network. Commissions are credited to your wallet instantly.</p>
+                </div>
+                <div class="aff-step reveal reveal-delay-4">
+                    <div class="aff-step-num">4</div>
+                    <h3 data-i18n="aff.step4Title">Withdraw to Your Bank</h3>
+                    <p data-i18n="aff.step4Desc">No matter which country you live in, you can withdraw your commission earnings to your local bank account in your local currency with a single tap in the app. We support 50+ currencies and 80+ countries.</p>
+                </div>
+            </div>
+            <div class="aff-insight reveal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <p data-i18n-html="aff.insightMultiLevel"><strong>Multi-level earning:</strong> Your tier determines how many levels deep you earn. At Bronze, you earn from direct referrals (Level 1). At Diamond, you earn from 5 levels deep. The commission rate for each level is fixed — advancing tiers simply unlocks more levels of passive income.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commission Structure Per Room -->
+    <section id="commission">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-i18n="aff.commissionTitle">Commission Structure</h2>
+                <p data-i18n="aff.commissionDesc">Detailed commission rates and tier requirements for each service.</p>
+            </div>
+            <div class="aff-rooms">{{AFF_ROOMS}}</div>
+        </div>
+    </section>
+
+    <!-- Earning Examples -->
+    <section id="examples">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-i18n="aff.examplesTitle">Earning Scenarios</h2>
+                <p data-i18n="aff.examplesDesc">See how your earnings grow as you build your network.</p>
+            </div>
+            <div class="aff-examples-scroll reveal">
+                <!-- Bronze -->
+                <div class="aff-example-card">
+                    <div class="aff-example-header">
+                        <div class="aff-example-title"><span data-i18n="affiliate.tierBronze">Bronze</span> <span data-i18n="aff.exTier">Tier</span></div>
+                        <div class="aff-example-badge">L1</div>
+                    </div>
+                    <div class="aff-example-value">A$100</div>
+                    <div class="aff-example-scenario" data-i18n-html="aff.exBronzeScenario">You refer <strong>5 users</strong> who each spend <strong>A$100</strong> on a monthly plan.</div>
+                    <ul class="aff-example-breakdown">
+                        <li><span>L1: 5 &times; A$100 &times; 20%</span> <span>A$100</span></li>
+                        <li class="locked"><span>L2: <span data-i18n="aff.exLocked">locked</span></span> <span>—</span></li>
+                        <li class="locked"><span>L3: <span data-i18n="aff.exLocked">locked</span></span> <span>—</span></li>
+                        <li class="locked"><span>L4: <span data-i18n="aff.exLocked">locked</span></span> <span>—</span></li>
+                        <li class="locked"><span>L5: <span data-i18n="aff.exLocked">locked</span></span> <span>—</span></li>
+                    </ul>
+                    <div class="aff-example-total"><span data-i18n="aff.exTotal">Total</span> <span>A$100</span></div>
+                </div>
+                <!-- Silver -->
+                <div class="aff-example-card">
+                    <div class="aff-example-header">
+                        <div class="aff-example-title"><span data-i18n="affiliate.tierSilver">Silver</span> <span data-i18n="aff.exTier">Tier</span></div>
+                        <div class="aff-example-badge">L1–L2</div>
+                    </div>
+                    <div class="aff-example-value">A$250</div>
+                    <div class="aff-example-scenario" data-i18n-html="aff.exSilverScenario">Your <strong>5 direct referrals</strong> each refer <strong>3 more users</strong>. Each referred user spends <strong>A$100</strong>.</div>
+                    <ul class="aff-example-breakdown">
+                        <li><span>L1: 5 &times; A$100 &times; 20%</span> <span>A$100</span></li>
+                        <li><span>L2: 15 &times; A$100 &times; 10%</span> <span>A$150</span></li>
+                        <li class="locked"><span>L3: <span data-i18n="aff.exLocked">locked</span></span> <span>—</span></li>
+                        <li class="locked"><span>L4: <span data-i18n="aff.exLocked">locked</span></span> <span>—</span></li>
+                        <li class="locked"><span>L5: <span data-i18n="aff.exLocked">locked</span></span> <span>—</span></li>
+                    </ul>
+                    <div class="aff-example-total"><span data-i18n="aff.exTotal">Total</span> <span>A$250</span></div>
+                </div>
+                <!-- Gold -->
+                <div class="aff-example-card">
+                    <div class="aff-example-header">
+                        <div class="aff-example-title"><span data-i18n="affiliate.tierGold">Gold</span> <span data-i18n="aff.exTier">Tier</span></div>
+                        <div class="aff-example-badge">L1–L3</div>
+                    </div>
+                    <div class="aff-example-value">A$950</div>
+                    <div class="aff-example-scenario" data-i18n-html="aff.exGoldScenario">You have <strong>10 direct referrals</strong>, each with <strong>3 sub-referrals</strong>, and each of those refers <strong>3 more</strong>. Each referred user spends <strong>A$100</strong>.</div>
+                    <ul class="aff-example-breakdown">
+                        <li><span>L1: 10 &times; A$100 &times; 20%</span> <span>A$200</span></li>
+                        <li><span>L2: 30 &times; A$100 &times; 10%</span> <span>A$300</span></li>
+                        <li><span>L3: 90 &times; A$100 &times; 5%</span> <span>A$450</span></li>
+                        <li class="locked"><span>L4: <span data-i18n="aff.exLocked">locked</span></span> <span>—</span></li>
+                        <li class="locked"><span>L5: <span data-i18n="aff.exLocked">locked</span></span> <span>—</span></li>
+                    </ul>
+                    <div class="aff-example-total"><span data-i18n="aff.exTotal">Total</span> <span>A$950</span></div>
+                </div>
+                <!-- Platinum -->
+                <div class="aff-example-card">
+                    <div class="aff-example-header">
+                        <div class="aff-example-title"><span data-i18n="affiliate.tierPlatinum">Platinum</span> <span data-i18n="aff.exTier">Tier</span></div>
+                        <div class="aff-example-badge">L1–L4</div>
+                    </div>
+                    <div class="aff-example-value">A$3,725</div>
+                    <div class="aff-example-scenario" data-i18n-html="aff.exPlatinumScenario">You have <strong>25 direct referrals</strong> with a growing network averaging <strong>3 members per level</strong> across 4 levels. Each referred user spends <strong>A$100</strong>.</div>
+                    <ul class="aff-example-breakdown">
+                        <li><span>L1: 25 &times; A$100 &times; 20%</span> <span>A$500</span></li>
+                        <li><span>L2: 75 &times; A$100 &times; 10%</span> <span>A$750</span></li>
+                        <li><span>L3: 225 &times; A$100 &times; 5%</span> <span>A$1,125</span></li>
+                        <li><span>L4: 675 &times; A$100 &times; 2%</span> <span>A$1,350</span></li>
+                        <li class="locked"><span>L5: <span data-i18n="aff.exLocked">locked</span></span> <span>—</span></li>
+                    </ul>
+                    <div class="aff-example-total"><span data-i18n="aff.exTotal">Total</span> <span>A$3,725</span></div>
+                </div>
+                <!-- Diamond -->
+                <div class="aff-example-card">
+                    <div class="aff-example-header">
+                        <div class="aff-example-title"><span data-i18n="affiliate.tierDiamond">Diamond</span> <span data-i18n="aff.exTier">Tier</span></div>
+                        <div class="aff-example-badge">L1–L5</div>
+                    </div>
+                    <div class="aff-example-value">A$11,500</div>
+                    <div class="aff-example-scenario" data-i18n-html="aff.exDiamondScenario">You have <strong>50+ direct referrals</strong> with a deep 5-level network averaging <strong>3 members per branch</strong>. Each referred user spends <strong>A$100</strong>.</div>
+                    <ul class="aff-example-breakdown">
+                        <li><span>L1: 50 &times; A$100 &times; 20%</span> <span>A$1,000</span></li>
+                        <li><span>L2: 150 &times; A$100 &times; 10%</span> <span>A$1,500</span></li>
+                        <li><span>L3: 450 &times; A$100 &times; 5%</span> <span>A$2,250</span></li>
+                        <li><span>L4: 1,350 &times; A$100 &times; 2%</span> <span>A$2,700</span></li>
+                        <li><span>L5: 4,050 &times; A$100 &times; 1%</span> <span>A$4,050</span></li>
+                    </ul>
+                    <div class="aff-example-total"><span data-i18n="aff.exTotal">Total</span> <span>A$11,500</span></div>
+                </div>
+            </div>
+            <div class="aff-scroll-hint">
+                <span data-i18n="aff.scrollHint">Scroll to see all tiers</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payout Information -->
+    <section id="payout">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-i18n="aff.payoutTitle">Payout Information</h2>
+                <p data-i18n="aff.payoutDesc">Your commissions are deposited to your in-app wallet instantly. Withdraw anytime from the app.</p>
+            </div>
+            <div class="aff-payout-grid reveal">
+                <div class="aff-payout-card">
+                    <div class="aff-payout-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    </div>
+                    <div class="aff-payout-label" data-i18n="aff.minWithdrawal">Min. Withdrawal</div>
+                    <div class="aff-payout-value" id="aff-min-withdraw">—</div>
+                </div>
+                <div class="aff-payout-card">
+                    <div class="aff-payout-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    </div>
+                    <div class="aff-payout-label" data-i18n="aff.payoutMethod">Payout Method</div>
+                    <div class="aff-payout-value" data-i18n="aff.payoutMethodValue">Bank Transfer</div>
+                </div>
+                <div class="aff-payout-card">
+                    <div class="aff-payout-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="aff-payout-label" data-i18n="aff.creditSpeed">Commission Credit</div>
+                    <div class="aff-payout-value" data-i18n="aff.creditSpeedValue">Real-time</div>
+                </div>
+            </div>
+            <div class="aff-insight reveal" style="margin-top: 32px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <p data-i18n-html="aff.payoutNote"><strong>How it works:</strong> When someone in your network makes a purchase, your commission is calculated and deposited to your in-app wallet in real-time. You can withdraw your balance at any time directly from the app via bank transfer, supporting <strong>50+ currencies</strong> and <strong>80+ countries</strong>. A fixed withdrawal fee of <strong id="aff-withdraw-fee">A$2.00</strong> applies per transaction, and a small currency conversion fee may apply depending on your local currency. Referred users also receive a <strong>3-day free bonus</strong> as a welcome gift.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-i18n="aff.faqTitle">Frequently Asked Questions</h2>
+                <p data-i18n="aff.faqDesc">Everything you need to know about the affiliate program.</p>
+            </div>
+            <div class="aff-faq-list reveal">
+                <div class="aff-faq-item">
+                    <div class="aff-faq-q"><span class="aff-faq-number">1</span><span data-i18n="aff.faq1Q">How do I join the affiliate program?</span><svg class="aff-faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                    <div class="aff-faq-a"><div class="aff-faq-a-inner" data-i18n="aff.faq1A">Every registered user automatically receives a unique referral code. Simply share your code with others. There is no separate application process — you are already an affiliate.</div></div>
+                </div>
+                <div class="aff-faq-item">
+                    <div class="aff-faq-q"><span class="aff-faq-number">2</span><span data-i18n="aff.faq2Q">How are commission rates determined?</span><svg class="aff-faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                    <div class="aff-faq-a"><div class="aff-faq-a-inner" data-i18n="aff.faq2A">Commission rates are fixed per earning level (e.g., 20% for Level 1, 10% for Level 2). Your tier determines how many levels you earn from. Advance tiers by growing your direct referral count or total commission revenue — whichever threshold you reach first.</div></div>
+                </div>
+                <div class="aff-faq-item">
+                    <div class="aff-faq-q"><span class="aff-faq-number">3</span><span data-i18n="aff.faq3Q">What is the difference between tier and level?</span><svg class="aff-faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                    <div class="aff-faq-a"><div class="aff-faq-a-inner" data-i18n="aff.faq3A">Your tier (Bronze, Silver, Gold, Platinum, Diamond) reflects your standing in the program and is based on your direct referrals or revenue. Levels (L1–L5) represent the depth in your referral network. A higher tier unlocks more earning levels. For example, a Gold affiliate earns from Levels 1, 2, and 3.</div></div>
+                </div>
+                <div class="aff-faq-item">
+                    <div class="aff-faq-q"><span class="aff-faq-number">4</span><span data-i18n="aff.faq4Q">When do I receive my commissions?</span><svg class="aff-faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                    <div class="aff-faq-a"><div class="aff-faq-a-inner" data-i18n="aff.faq4A">Commissions are credited to your in-app wallet in real-time as soon as a purchase in your network is completed. You can withdraw your balance at any time directly from the app to your bank account via international bank transfer, subject to the minimum withdrawal amount and processing fee shown in the Payout section above.</div></div>
+                </div>
+                <div class="aff-faq-item">
+                    <div class="aff-faq-q"><span class="aff-faq-number">5</span><span data-i18n="aff.faq5Q">Can I earn from multiple services/rooms?</span><svg class="aff-faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                    <div class="aff-faq-a"><div class="aff-faq-a-inner" data-i18n="aff.faq5A">Yes. Your referral code works across all services. Commission rates and tier requirements may vary per service — see the commission structure tables above for details specific to each service.</div></div>
+                </div>
+                <div class="aff-faq-item">
+                    <div class="aff-faq-q"><span class="aff-faq-number">6</span><span data-i18n="aff.faq6Q">What do referred users get?</span><svg class="aff-faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                    <div class="aff-faq-a"><div class="aff-faq-a-inner" data-i18n="aff.faq6A">Users who register with your referral code receive a 3-day free bonus added to their account. This makes it easy to promote — your referrals get an immediate benefit for using your code.</div></div>
+                </div>
+                <div class="aff-faq-item">
+                    <div class="aff-faq-q"><span class="aff-faq-number">7</span><span data-i18n="aff.faq7Q">Is there a limit to how much I can earn?</span><svg class="aff-faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                    <div class="aff-faq-a"><div class="aff-faq-a-inner" data-i18n="aff.faq7A">No. There is no cap on earnings. The more your network grows and the more purchases they make, the more you earn. At Diamond tier, you earn commissions from 5 levels deep with no upper limit.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA + QR Share -->
+    <section style="padding: 80px 0 100px;">
+        <div class="container">
+            <div class="aff-cta-section reveal">
+                <div class="aff-cta-content">
+                    <h2 data-i18n="aff.ctaTitle">Ready to Start Earning?</h2>
+                    <p data-i18n="aff.ctaDesc">Download the app, get your referral code, and start building your network today.</p>
+                    <a href="index.html#contact" class="btn btn-primary" data-i18n="affiliate.becomePartner">Become a Partner</a>
+                </div>
+                <div class="aff-qr-card">
+                    <div class="aff-qr-code" id="aff-qr"></div>
+                    <p class="aff-qr-label" data-i18n="aff.qrScan">Scan to share this page</p>
+                    <p class="aff-qr-url" id="aff-qr-url"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" data-i18n="footer.brand">Root Corporation</a>
+                    <p style="margin-top: 16px;" data-i18n="footer.brandDescription">Protect your digital privacy with our advanced privacy protection services. Trusted by users worldwide.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.solutions">Solutions</h4>
+                    <ul id="footer-apps">{{FOOTER_APPS}}</ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.company">Company</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                        <li><a href="index.html#features" data-i18n="nav.features">Features</a></li>
+                        <li><a href="affiliate.html" data-i18n="footer.affiliate">Affiliate</a></li>
+                        <li><a href="index.html#contact" data-i18n="footer.support">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.contactUs">Contact Us</h4>
+                    <ul style="color: var(--text-muted); font-size: 0.88rem;">
+                        <li style="padding: 7px 0;"><a href="mailto:developer@root-corporation.com">developer@root-corporation.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="border-top: 1px solid var(--border); padding-top: 30px; margin-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                <p style="color: var(--text-dim); font-size: 0.82rem;" data-i18n="footer.copyright">&copy; 2025 Root Corporation Pty Ltd. All rights reserved.</p>
+                <p style="color: var(--text-dim); font-size: 0.82rem;" data-i18n="footer.abn">ABN 34 686 229 532 &middot; Australia</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+var API_BASE = '{{API_BASE}}';
+var ROOM_HASH = '{{ROOM_HASH}}';
+
+// Fetch rule config from API
+(function() {
+    if (!API_BASE || !ROOM_HASH) return;
+    fetch(API_BASE + '/v1/public/rule', { headers: { 'X-Room-Id': ROOM_HASH } })
+        .then(function(r) { return r.json(); })
+        .then(function(res) {
+            if (res.code !== 0 || !res.data || !res.data.rule) return;
+            var rule = res.data.rule;
+            var minWd = (rule.min_withdraw_config || 0) / 100;
+            var fee = (rule.withdrawal_fee_config || 0) / 100;
+            var fmt = function(v) { return 'A$' + (v % 1 === 0 ? v.toFixed(2) : v.toString()); };
+            var el1 = document.getElementById('aff-min-withdraw');
+            var el2 = document.getElementById('aff-withdraw-fee');
+            if (el1) el1.textContent = fmt(minWd);
+            if (el2) el2.textContent = fmt(fee);
+        })
+        .catch(function() {});
+})();
+
+// FAQ toggle
+document.querySelectorAll('.aff-faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+        var item = q.closest('.aff-faq-item');
+        var wasOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.aff-faq-item').forEach(function(i) { i.classList.remove('open'); });
+        // Toggle clicked
+        if (!wasOpen) item.classList.add('open');
+    });
+});
+
+// Mobile menu
+(function() {
+    var menuBtn = document.getElementById('mobile-menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    if (!menuBtn || !menu) return;
+    menuBtn.addEventListener('click', function() {
+        var isOpen = menu.classList.contains('active');
+        menu.classList.toggle('active', !isOpen);
+        document.body.style.overflow = isOpen ? '' : 'hidden';
+    });
+    menu.addEventListener('click', function(e) {
+        if (e.target.classList.contains('mobile-menu-link')) {
+            menu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+})();
+
+// Scroll reveal
+(function() {
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+})();
+
+// Nav scroll effect
+(function() {
+    var nav = document.querySelector('nav');
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                nav.classList.toggle('scrolled', window.scrollY > 50);
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+})();
+    </script>
+
+    <!-- QR Code -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <script>
+(function() {
+    var url = window.location.href;
+    var el = document.getElementById('aff-qr');
+    var urlEl = document.getElementById('aff-qr-url');
+    if (!el) return;
+    try {
+        var qr = qrcode(0, 'M');
+        qr.addData(url);
+        qr.make();
+        var size = 280;
+        var modules = qr.getModuleCount();
+        var cellSize = size / modules;
+        var canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, size, size);
+        ctx.fillStyle = '#0f172a';
+        for (var r = 0; r < modules; r++) {
+            for (var c = 0; c < modules; c++) {
+                if (qr.isDark(r, c)) {
+                    ctx.fillRect(c * cellSize, r * cellSize, cellSize + 0.5, cellSize + 0.5);
+                }
+            }
+        }
+        el.appendChild(canvas);
+    } catch(e) {}
+    if (urlEl) urlEl.textContent = url;
+})();
+    </script>
+
+    <!-- i18n Scripts -->
+    <script src="assets/i18n.js"></script>
+    <script src="assets/locales/en.js"></script>
+    <script src="assets/locales/zh-sg.js"></script>
+    <script src="assets/locales/zh-tw.js"></script>
+    <script src="assets/locales/zh-hk.js"></script>
+    <script src="assets/locales/hi.js"></script>
+    <script src="assets/locales/ta.js"></script>
+    <script src="assets/locales/te.js"></script>
+    <script src="assets/locales/bn.js"></script>
+    <script src="assets/locales/ur.js"></script>
+    <script src="assets/locales/id.js"></script>
+    <script src="assets/locales/ms.js"></script>
+    <script src="assets/locales/jv.js"></script>
+    <script src="assets/locales/vi.js"></script>
+    <script src="assets/locales/th.js"></script>
+    <script src="assets/locales/km.js"></script>
+    <script src="assets/locales/my.js"></script>
+    <script src="assets/locales/fil.js"></script>
+    <script src="assets/locales/ja.js"></script>
+    <script src="assets/locales/ko.js"></script>
+    <script src="assets/locales/fr.js"></script>
+    <script src="assets/locales/es.js"></script>
+    <script src="assets/locales/pt.js"></script>
+    <script src="assets/locales/it.js"></script>
+    <script src="assets/locales/de.js"></script>
+    <script src="assets/locales/ru.js"></script>
+    <script src="assets/locales/tr.js"></script>
+    <script src="assets/locales/ar.js"></script>
+    <script src="assets/locales/fa.js"></script>
+    <script>I18n.init();</script>
+
+    <!-- Theme toggle -->
+    <script>
+(function() {
+    var toggle = document.getElementById('theme-toggle');
+    var toggleMobile = document.getElementById('theme-toggle-nav');
+    var html = document.documentElement;
+    function getSystemTheme() {
+        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    function applyTheme(theme) {
+        html.setAttribute('data-theme', theme);
+    }
+    var saved = localStorage.getItem('theme');
+    applyTheme(saved || getSystemTheme());
+    function handleToggle() {
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem('theme', next);
+    }
+    toggle.addEventListener('click', handleToggle);
+    if (toggleMobile) toggleMobile.addEventListener('click', handleToggle);
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function() {
+        if (!localStorage.getItem('theme')) applyTheme(getSystemTheme());
+    });
+})();
+    </script>
+</body>
+</html>

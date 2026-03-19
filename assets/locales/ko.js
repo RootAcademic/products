@@ -1,0 +1,487 @@
+/**
+ * Korean translations - 한국어
+ */
+I18n.addTranslations('ko', {
+    nav: {
+        home: '홈',
+        solutions: '솔루션',
+        features: '기능',
+        exploreSolutions: '솔루션 둘러보기',
+        download: '다운로드',
+        pricing: '요금제',
+        infrastructure: '인프라',
+        bonuses: '보너스',
+        affiliate: '제휴 프로그램',
+        legal: '법적 정보',
+        getStarted: '시작하기',
+        allSolutions: '← 모든 솔루션',
+        menu: '메뉴',
+        guide: '가이드'
+    },
+    hero: {
+        badge: '엔터프라이즈급 AI 보안',
+        title: 'AI 에이전트<br>트래픽 보호',
+        description: '암호화 릴레이 인프라로 AI 플랫폼 연결을 보호하세요. OpenClaw, ChatGPT, Claude, DeepSeek, Qwen 등 17개 이상의 AI 플랫폼에서 프롬프트 유출, 자격 증명 도난, 세션 하이재킹을 방지합니다.',
+        cta: '솔루션 둘러보기'
+    },
+    appHero: {
+        badge: 'AI 에이전트 보안',
+        description: '엔드투엔드 암호화 AI 릴레이, 제로 데이터 로깅, CNCERT/CC 권고 준수. 모든 주요 플랫폼에서 AI 에이전트 트래픽을 보호합니다.',
+        viewPlans: '요금제 보기'
+    },
+    apps: {
+        title: 'AI 보안 솔루션',
+        description: '필요에 가장 적합한 AI 릴레이 서비스를 선택하세요.',
+        viewDetails: '자세히 보기',
+        cardDesc: '엔드투엔드 암호화 AI 릴레이, 제로 데이터 로깅.',
+        badgeEncrypted: '암호화',
+        badgeZeroLogs: '제로 로그',
+        badgeGlobal: '글로벌 네트워크',
+        statNodes: '노드',
+        statPlatforms: '플랫폼',
+        statPlans: '요금제',
+        fromPrice: '~부터',
+        bonusDaysFree: '일 무료',
+        bonusHoursFree: '시간 무료',
+        bonusMinsFree: '분 무료'
+    },
+    features: {
+        title: '선택해야 하는 이유',
+        description: '업계 최고의 AI 에이전트 보안.',
+        zeroData: {
+            title: '제로 데이터 로깅',
+            description: 'AI 프롬프트, 모델 응답, 연구 쿼리를 기록, 저장, 분석하지 않습니다.'
+        },
+        encryption: {
+            title: '엔드투엔드 암호화',
+            description: '군사급 암호화 프로토콜이 AI 세션을 가로채기 및 리플레이 공격으로부터 보호합니다.'
+        },
+        anonymous: {
+            title: 'AI 트래픽 격리',
+            description: '스플릿 터널 기술로 AI 에이전트 및 학술 트래픽만 릴레이합니다. 다른 트래픽은 로컬 연결을 유지합니다.'
+        },
+        global: {
+            title: '글로벌 AI 릴레이 네트워크',
+            description: '전 세계 AI 릴레이 노드로 주요 AI 플랫폼에 저지연 연결.'
+        },
+        multiPlatform: {
+            title: '멀티 플랫폼',
+            description: '하나의 구독으로 모든 기기를 보호하세요 — 데스크톱, 모바일 등.'
+        },
+        support: {
+            title: '24시간 연중무휴 지원',
+            description: '프라이버시 전문가가 24시간 대기하여 도움을 드립니다.'
+        }
+    },
+    contact: {
+        title: '문의하기',
+        description: '질문이나 지원이 필요하시면 언제든지 연락해 주세요.',
+        infoTitle: '연락처 정보',
+        formTitle: '메시지 보내기',
+        email: '이메일',
+        businessReg: '사업자 등록',
+        form: {
+            name: '이름',
+            namePlaceholder: '이름을 입력하세요',
+            email: '이메일',
+            emailPlaceholder: 'yourname@example.com',
+            subject: '제목',
+            subjectPlaceholder: '어떻게 도와드릴까요?',
+            message: '메시지',
+            messagePlaceholder: '문의 내용을 자세히 알려주세요...',
+            submit: '메시지 보내기'
+        }
+    },
+    download: {
+        title: '앱 다운로드',
+        description: '기기에 맞는 앱을 받으세요. 아래에서 플랫폼을 선택하세요.',
+        appStores: 'APP STORE에서 설치(공식)',
+        directDownload: '수동 다운로드 및 설치(선택 사항)',
+        guideHint: {
+            apple: 'App Store에 접근하려면 지역 계정이 필요하신가요?',
+            android: 'Google Play에 접근하려면 지역 계정이 필요하신가요?',
+            windows: 'Microsoft Store에 접근하려면 지역 계정이 필요하신가요?'
+        },
+        guideLink: {
+            apple: '해외 Apple ID 설정 가이드',
+            android: '해외 Google Account 설정 가이드',
+            windows: 'Microsoft Account 설정 가이드'
+        },
+        popupGuide: '계정 생성에 도움이 필요하신가요?',
+        popupTitle: '{{platform}}용 {{app}} 받기',
+        popupSubtitle: '{{platform}}을(를) 사용 중이시군요.<br>지금 앱을 다운로드하세요!',
+        popupVersion: '버전 {{version}}',
+        popupOrDirect: '또는 직접 다운로드',
+        popupBrowseAll: '모든 플랫폼 보기',
+        downloadNow: '지금 다운로드',
+        storeGuideHint: {
+            apple: '<small>생성 방법 알아보기</small><span>Apple ID</span>',
+            android: '<small>생성 방법 알아보기</small><span>Google Account</span>',
+            windows: '<small>생성 방법 알아보기</small><span>Microsoft Account</span>'
+        },
+        windows: {
+            name: 'Windows'
+        },
+        android: {
+            name: 'Android'
+        },
+        apple: {
+            name: 'Apple'
+        }
+    },
+    pricing: {
+        title: '간단하고 투명한 요금제',
+        description: '가장 적합한 요금제를 선택하세요. 모든 요금제에는 전체 액세스가 포함됩니다.',
+        previous: '이전',
+        next: '다음',
+        featurePrivacy: '전체 AI 트래픽 보호',
+        featureNodes: '모든 글로벌 릴레이 노드',
+        featureBandwidth: '무제한 대역폭',
+        featureSupport: '24/7 AI 보안 지원',
+        days: '일',
+        day: '일'
+    },
+    servers: {
+        title: '글로벌 AI 릴레이 네트워크',
+        description: 'AI 플랫폼과 학술 자료에 대한 저지연 액세스를 위한 암호화 릴레이 노드.'
+    },
+    bonuses: {
+        title: '특별 보너스',
+        description: '가입하고 친구를 소개하면 보상을 받으세요.',
+        daysFree: '일 무료',
+        hoursFree: '시간 무료',
+        minutesFree: '분 무료',
+        welcomeBonus: {
+            title: '가입 보너스',
+            description: '가입 시 무료 액세스 제공'
+        },
+        referralBonus: {
+            title: '추천 보너스',
+            description: '친구를 추천할 때마다 무료 일수 적립'
+        },
+        shareBonus: {
+            title: '공유 보너스',
+            description: 'SNS에 공유하고 보상을 받으세요'
+        }
+    },
+    affiliate: {
+        title: '제휴 프로그램',
+        description: '파트너 네트워크에 참여하고 함께 성장하세요.',
+        heroTitle: '추천할 때마다 수익 창출',
+        heroDescription: '네트워크를 수입으로 바꾸세요. AI 보안 보호를 공유하고 성공적인 추천마다 보상을 받으세요.',
+        startingCommission: '기본 수수료',
+        commissionTiers: '수수료 등급',
+        payouts: '지급',
+        anytime: '언제든지',
+        becomePartner: '파트너 되기',
+        tierBronze: '브론즈',
+        tierSilver: '실버',
+        tierGold: '골드',
+        tierPlatinum: '플래티넘',
+        tierDiamond: '다이아몬드',
+        viewFullProgram: '전체 프로그램 보기'
+    },
+    legal: {
+        title: '법적 정보',
+        description: '투명성은 우리에게 중요합니다.',
+        userAgreement: '이용약관',
+        privacyPolicy: '개인정보 처리방침'
+    },
+    footer: {
+        brand: 'Root Corporation',
+        brandDescription: '암호화 릴레이 인프라로 AI 플랫폼 연결을 보호합니다. 전 세계 연구자와 개발자가 신뢰합니다.',
+        solutions: '솔루션',
+        company: '회사 소개',
+        download: '다운로드',
+        contactUs: '문의하기',
+        support: '고객 지원',
+        copyright: '© 2025 Root Corporation Pty Ltd. All rights reserved.',
+        abn: 'ABN 34 686 229 532 · Australia',
+        affiliate: '제휴 프로그램'
+    },
+    aff: {
+        navHow: '이용 방법',
+        navCommission: '수수료',
+        navExamples: '사례',
+        navPayout: '지급',
+        navFaq: 'FAQ',
+        heroBadge: '파트너 네트워크',
+        heroTitle: '제휴 수익을<br>구축하세요',
+        heroDesc: '멀티 티어 제휴 프로그램에 참여하여 모든 추천에서 수수료를 받으세요. 네트워크가 커질수록 더 많은 수익 레벨이 해제됩니다.',
+        heroRate: '20%+',
+        heroRateLabel: '기본 수수료',
+        heroTiersLabel: '수익 등급',
+        heroPayoutValue: '즉시',
+        heroPayoutLabel: '지갑 크레딧',
+        howTitle: '이용 방법',
+        howDesc: '4가지 간단한 단계로 수익을 시작하세요.',
+        step1Title: '가입하고 코드 받기',
+        step1Desc: '서비스에 가입하면 자동으로 고유한 6자리 추천 코드가 발급됩니다. 누구에게든 공유할 수 있습니다.',
+        step2Title: '공유하고 네트워크 확장',
+        step2Desc: '추천 코드를 공유하세요. 누군가 당신의 코드로 가입하면 네트워크의 일원이 됩니다. 네트워크가 성장하면 등급이 올라가고 더 깊은 수익 레벨이 해제됩니다.',
+        step3Title: '멀티 레벨 수수료 받기',
+        step3Desc: '네트워크 내 누군가가 구매하면 수수료를 받습니다. 상위 등급에서는 더 깊은 레벨에서도 수익을 얻을 수 있습니다. 수수료는 즉시 지갑에 입금됩니다.',
+        step4Title: '은행으로 출금',
+        step4Desc: '어느 나라에 살든 앱에서 한 번의 탭으로 현지 통화로 현지 은행 계좌에 수수료 수익을 출금할 수 있습니다. 50개 이상의 통화와 80개 이상의 국가를 지원합니다.',
+        insightMultiLevel: '<strong>멀티 레벨 수익:</strong> 등급에 따라 몇 레벨 깊이까지 수익을 얻을 수 있는지가 결정됩니다. 브론즈에서는 직접 추천(레벨 1)에서, 다이아몬드에서는 5레벨 깊이까지 수익을 얻을 수 있습니다. 각 레벨의 수수료율은 고정되어 있으며, 등급 상승은 더 많은 레벨의 패시브 인컴을 해제합니다.',
+        commissionTitle: '수수료 체계',
+        commissionDesc: '각 서비스의 상세한 수수료율 및 등급 요건.',
+        matrixTitle: '수수료 매트릭스',
+        yourTier: '현재 등급',
+        direct: '(직접)',
+        totalEarning: '합계',
+        reqTitle: '등급 요건',
+        tier: '등급',
+        membersNeeded: '필요 회원 수',
+        orRevenueNeeded: '또는 필요 수익',
+        levelsUnlocked: '해제 레벨 수',
+        matrixInsight: '<strong>핵심 포인트:</strong> 수수료율은 등급이 아닌 레벨(당신으로부터의 거리)에 의해 결정됩니다. 등급은 몇 레벨 깊이까지 수익을 얻을 수 있는지를 결정할 뿐입니다. 예를 들어, 골드 제휴 파트너는 레벨 1에서 20%, 레벨 2에서 10%, 레벨 3에서 5%를 받습니다.',
+        examplesTitle: '수익 시나리오',
+        examplesDesc: '네트워크 구축에 따른 수익 성장을 확인하세요.',
+        exBronzeScenario: '월간 플랜에 <strong>A$100</strong>씩 사용하는 <strong>5명의 사용자</strong>를 추천합니다.',
+        exSilverScenario: '<strong>5명의 직접 추천인</strong>이 각각 <strong>3명의 추가 사용자</strong>를 추천합니다. 추천된 각 회원이 <strong>A$100</strong>을 사용합니다.',
+        exGoldScenario: '<strong>10명의 직접 추천인</strong>이 있고, 각각 <strong>3명의 하위 추천인</strong>이 있으며, 각각 <strong>3명을 더</strong> 추천합니다. 추천된 각 회원이 <strong>A$100</strong>을 사용합니다.',
+        exPlatinumScenario: '<strong>25명의 직접 추천인</strong>이 있으며 4개 레벨에 걸쳐 <strong>레벨당 평균 3명</strong>의 성장하는 네트워크가 있습니다. 추천된 각 회원이 <strong>A$100</strong>을 사용합니다.',
+        exTier: '등급',
+        exDiamondScenario: '<strong>50명 이상의 직접 추천인</strong>이 있으며 <strong>브랜치당 평균 3명</strong>의 5레벨 심층 네트워크가 있습니다. 추천된 각 회원이 <strong>A$100</strong>을 사용합니다.',
+        exTotal: '합계',
+        exLocked: '잠김',
+        scrollHint: '모든 등급을 보려면 스크롤하세요',
+        payoutTitle: '지급 정보',
+        payoutDesc: '수수료는 앱 내 지갑에 즉시 입금됩니다. 언제든지 앱에서 출금할 수 있습니다.',
+        minWithdrawal: '최소 출금액',
+        withdrawFee: '출금 수수료',
+        payoutMethod: '지급 방법',
+        payoutMethodValue: '은행 송금',
+        creditSpeed: '수수료 입금',
+        creditSpeedValue: '실시간',
+        payoutNote: '<strong>작동 방식:</strong> 네트워크 내 누군가가 구매하면, 수수료가 계산되어 앱 내 지갑에 실시간으로 입금됩니다. 앱에서 직접 은행 송금을 통해 언제든지 잔액을 출금할 수 있으며, <strong>50개 이상의 통화</strong>와 <strong>80개 이상의 국가</strong>를 지원합니다. 출금 시 건당 <strong id="aff-withdraw-fee">A$2.00</strong>의 고정 수수료가 부과되며, 현지 통화에 따라 소액의 환전 수수료가 발생할 수 있습니다. 추천받은 사용자에게는 환영 선물로 <strong>3일 무료 보너스</strong>도 제공됩니다.',
+        faqTitle: '자주 묻는 질문',
+        faqDesc: '제휴 프로그램에 대해 알아야 할 모든 것.',
+        faq1Q: '제휴 프로그램에 어떻게 가입하나요?',
+        faq1A: '모든 등록 사용자에게 고유한 추천 코드가 자동으로 발급됩니다. 코드를 다른 사람과 공유하기만 하면 됩니다. 별도의 신청 절차가 없습니다 — 이미 제휴 파트너입니다.',
+        faq2Q: '수수료율은 어떻게 결정되나요?',
+        faq2A: '수수료율은 수익 레벨별로 고정되어 있습니다(예: 레벨 1은 20%, 레벨 2는 10%). 등급에 따라 몇 레벨에서 수익을 얻을 수 있는지가 결정됩니다. 직접 추천 수 또는 총 수수료 수익 중 먼저 달성하는 기준으로 등급이 올라갑니다.',
+        faq3Q: '등급과 레벨의 차이는 무엇인가요?',
+        faq3A: '등급(브론즈, 실버, 골드, 플래티넘, 다이아몬드)은 프로그램에서의 순위를 나타내며, 직접 추천 수 또는 수익을 기반으로 합니다. 레벨(L1~L5)은 추천 네트워크의 깊이를 나타냅니다. 상위 등급일수록 더 많은 수익 레벨이 해제됩니다. 예를 들어, 골드 제휴 파트너는 레벨 1, 2, 3에서 수익을 얻습니다.',
+        faq4Q: '수수료는 언제 받을 수 있나요?',
+        faq4A: '수수료는 네트워크 내 구매가 완료되면 즉시 앱 내 지갑에 실시간으로 입금됩니다. 앱에서 직접 Wise를 통해 언제든지 은행 계좌로 잔액을 출금할 수 있으며, 최소 출금액과 정액 처리 수수료가 적용됩니다 — 자세한 내용은 위의 지급 섹션을 참조하세요.',
+        faq5Q: '여러 서비스에서 수익을 얻을 수 있나요?',
+        faq5A: '네. 추천 코드는 모든 서비스에서 사용 가능합니다. 수수료율과 등급 요건은 서비스마다 다를 수 있습니다 — 각 서비스별 자세한 내용은 위의 수수료 체계 표를 참조하세요.',
+        faq6Q: '추천받은 사용자에게는 무엇이 제공되나요?',
+        faq6A: '추천 코드를 사용하여 가입한 사용자에게는 3일 무료 보너스가 계정에 추가됩니다. 프로모션이 쉬워집니다 — 추천자도 코드 사용으로 즉각적인 혜택을 받습니다.',
+        faq7Q: '수익에 상한이 있나요?',
+        faq7A: '아니요. 수익에 상한이 없습니다. 네트워크가 성장하고 구매가 늘어날수록 더 많이 벌 수 있습니다. 다이아몬드 등급에서는 5레벨 깊이에서 상한 없이 수수료를 받을 수 있습니다.',
+        ctaTitle: '지금 시작할 준비가 되셨나요?',
+        ctaDesc: '앱을 다운로드하고 추천 코드를 받아 오늘부터 네트워크를 구축하세요.',
+        qrScan: '스캔하여 이 페이지를 공유하세요'
+    },
+    accountGuide: {
+        title: '계정 설정 가이드',
+        description: '해외 Apple ID, Google Account 또는 Microsoft Account를 생성하여 원하는 플랫폼 스토어에서 앱을 다운로드하세요.',
+        appleName: 'Apple ID',
+        appleDesc: 'iPhone & iPad',
+        androidName: 'Google Account',
+        androidDesc: 'Android 기기',
+        windowsName: 'Microsoft Account',
+        windowsDesc: 'Windows PC',
+        tabAU: '호주',
+        tabUS: '미국',
+        tabHK: '홍콩',
+        apple: {
+            step1Title: '준비',
+            step2Title: '브라우저에서 Apple ID 생성',
+            step3Title: '배송 주소 입력',
+            step4Title: 'iPhone 준비',
+            step5Title: '로그인 및 활성화',
+            tip: 'Settings에서 Apple ID를 로그아웃하지 마세요 — App Store 내에서만 계정을 전환하세요. iCloud 데이터는 안전하게 유지됩니다.',
+            us: {
+                step1_1: '이전에 Apple ID에 사용된 적 없는 새 이메일 주소가 필요합니다. 새 이메일을 만드세요(Outlook, Hotmail, Gmail 등 — QQ Mail이나 163 Mail 같은 제한 지역의 이메일 제공자는 사용하지 마세요).',
+                step1_2: 'SMS 인증 코드를 받을 수 있는 전화번호를 준비하세요 — Apple ID에 등록되지 않은 전화번호라면 어느 국가/지역의 번호든 사용 가능합니다.',
+                step1_3: '활성화를 완료하려면 iPhone이 필요합니다.',
+                step1_4: '이후 단계에서 면세주(Alaska, Montana, Oregon 또는 Delaware)의 유효한 미국 주소와 미국 전화번호가 필요합니다 — https://www.meiguodizhi.com 주소 생성기에서 생성하세요. 웹사이트에 접속할 수 없는 경우 www.bing.com에서 "US address generator"를 검색하세요.',
+                step2_1: '아무 기기의 브라우저에서 시크릿/프라이빗 모드로 account.apple.com/us에 접속하세요(Google Chrome 또는 Edge 권장). 오른쪽 상단의 "Create Your Apple Account"를 클릭하세요.',
+                step2_2: '이름과 성을 입력하세요(아무 이름이나 가능합니다).',
+                step2_3: '국가/지역으로 "United States"를 선택하세요.',
+                step2_4: '생년월일을 입력하세요(만 18세 이상이어야 합니다).',
+                step2_5: '새 이메일 주소를 입력하세요 — 이전에 Apple ID 등록에 사용된 적 없는 이메일이어야 합니다. 인증 코드를 받을 수 있는지 확인하세요.',
+                step2_6: '비밀번호를 만드세요(대문자, 소문자, 숫자, 특수 기호를 포함한 8자 이상).',
+                step2_7: '전화번호를 입력하세요 — SMS 인증 코드 수신에 사용됩니다. 아무 번호나 사용할 수 있습니다(미국 전화번호일 필요 없음). 나중에 배송 주소에 입력할 전화번호와 다릅니다. "Continue"를 클릭하세요.',
+                step2_8: 'Apple이 보낸 코드로 이메일과 전화번호를 모두 인증하세요.',
+                step3_1: '브라우저에서 account.apple.com의 Apple Account에 접속하세요. 계정 관리 페이지에서 "Payment & Shipping"을 선택한 다음 "Add Shipping Address"를 선택하세요. 1단계에서 준비한 주소 생성기의 미국 주소를 입력하세요. 결제 수단을 추가할 필요가 없습니다.',
+                step3_2: '제출 후 웹에서의 미국 Apple ID 등록이 완료됩니다.',
+                step4_1: 'iPhone에서 Settings > Privacy & Security > Location Services로 이동하여 OFF로 설정하세요.',
+                step4_2: 'Settings > General > Language & Region으로 이동하여 Language를 "English (US)", Region을 "United States"로 설정하세요.',
+                step4_3: 'App Store를 열고 오른쪽 상단의 프로필 아이콘을 탭한 다음 아래로 스크롤하여 "Sign Out"을 탭하여 App Store에서만 현재 Apple ID를 로그아웃하세요(Settings의 시스템 Apple ID에는 영향을 주지 않습니다).',
+                step5_1: 'App Store에서 오른쪽 상단의 프로필 아이콘을 탭하고 새로 등록한 Apple ID로 로그인하세요. 아무 무료 앱을 다운로드해 보세요. "This Apple ID has not yet been used in the iTunes Store"라는 메시지가 나타납니다.',
+                step5_2: '"Review"를 탭하세요. 지역으로 "United States"를 선택하고(올바른 지역을 선택해야 합니다), 약관에 동의한 후 "Next"를 탭하세요. 결제 수단을 선택하지 마세요. 1단계의 미국 주소와 전화번호를 입력하세요 — 여기서 전화번호는 생성기의 미국 번호를 사용하고 개인 번호는 사용하지 마세요.',
+                step5_3: '"Next"를 탭하여 완료하세요. 미국 Apple ID가 완전히 활성화되어 사용할 준비가 되었습니다.'
+            },
+            au: {
+                step1_1: '이전에 Apple ID에 사용된 적 없는 새 이메일 주소가 필요합니다. 새 이메일을 만드세요(Outlook, Hotmail, Gmail 등 — QQ Mail이나 163 Mail 같은 제한 지역의 이메일 제공자는 사용하지 마세요).',
+                step1_2: 'SMS 인증 코드를 받을 수 있는 전화번호를 준비하세요 — Apple ID에 등록되지 않은 전화번호라면 어느 국가/지역의 번호든 사용 가능합니다.',
+                step1_3: '활성화를 완료하려면 iPhone이 필요합니다.',
+                step1_4: '이후 단계에서 유효한 호주 주소와 호주 전화번호가 필요합니다 — https://www.meiguodizhi.com/au-address 주소 생성기에서 생성하세요. 웹사이트에 접속할 수 없는 경우 www.bing.com에서 "Australia address generator"를 검색하세요.',
+                step2_1: '아무 기기의 브라우저에서 시크릿/프라이빗 모드로 account.apple.com/au에 접속하세요(Google Chrome 또는 Edge 권장). 오른쪽 상단의 "Create Your Apple Account"를 클릭하세요.',
+                step2_2: '이름과 성을 입력하세요(아무 이름이나 가능합니다).',
+                step2_3: '국가/지역으로 "Australia"를 선택하세요.',
+                step2_4: '생년월일을 입력하세요(만 18세 이상이어야 합니다).',
+                step2_5: '새 이메일 주소를 입력하세요 — 이전에 Apple ID 등록에 사용된 적 없는 이메일이어야 합니다. 인증 코드를 받을 수 있는지 확인하세요.',
+                step2_6: '비밀번호를 만드세요(대문자, 소문자, 숫자, 특수 기호를 포함한 8자 이상).',
+                step2_7: '전화번호를 입력하세요 — SMS 인증 코드 수신에 사용됩니다. 아무 번호나 사용할 수 있습니다(호주 전화번호일 필요 없음). 나중에 배송 주소에 입력할 전화번호와 다릅니다. "Continue"를 클릭하세요.',
+                step2_8: 'Apple이 보낸 코드로 이메일과 전화번호를 모두 인증하세요.',
+                step3_1: '브라우저에서 account.apple.com의 Apple Account에 접속하세요. 계정 관리 페이지에서 "Payment & Shipping"을 선택한 다음 "Add Shipping Address"를 선택하세요. 1단계에서 준비한 주소 생성기의 호주 주소를 입력하세요. 결제 수단을 추가할 필요가 없습니다.',
+                step3_2: '제출 후 웹에서의 호주 Apple ID 등록이 완료됩니다.',
+                step4_1: 'iPhone에서 Settings > Privacy & Security > Location Services로 이동하여 OFF로 설정하세요.',
+                step4_2: 'Settings > General > Language & Region으로 이동하여 Language를 "English (Australia)", Region을 "Australia"로 설정하세요.',
+                step4_3: 'App Store를 열고 오른쪽 상단의 프로필 아이콘을 탭한 다음 아래로 스크롤하여 "Sign Out"을 탭하여 App Store에서만 현재 Apple ID를 로그아웃하세요(Settings의 시스템 Apple ID에는 영향을 주지 않습니다).',
+                step5_1: 'App Store에서 오른쪽 상단의 프로필 아이콘을 탭하고 새로 등록한 Apple ID로 로그인하세요. 아무 무료 앱을 다운로드해 보세요. "This Apple ID has not yet been used in the iTunes Store"라는 메시지가 나타납니다.',
+                step5_2: '"Review"를 탭하세요. 지역으로 "Australia"를 선택하고(올바른 지역을 선택해야 합니다), 약관에 동의한 후 "Next"를 탭하세요. 결제 수단을 선택하지 마세요. 1단계의 호주 주소와 전화번호를 입력하세요 — 여기서 전화번호는 생성기의 호주 번호를 사용하고 개인 번호는 사용하지 마세요.',
+                step5_3: '"Next"를 탭하여 완료하세요. 호주 Apple ID가 완전히 활성화되어 사용할 준비가 되었습니다.'
+            },
+            hk: {
+                step1_1: '이전에 Apple ID에 사용된 적 없는 새 이메일 주소가 필요합니다. 새 이메일을 만드세요(Outlook, Hotmail, Gmail 등 — QQ Mail이나 163 Mail 같은 제한 지역의 이메일 제공자는 사용하지 마세요).',
+                step1_2: 'SMS 인증 코드를 받을 수 있는 전화번호를 준비하세요 — Apple ID에 등록되지 않은 전화번호라면 어느 국가/지역의 번호든 사용 가능합니다.',
+                step1_3: '활성화를 완료하려면 iPhone이 필요합니다.',
+                step1_4: '이후 단계에서 유효한 홍콩 주소와 홍콩 전화번호가 필요합니다 — https://www.meiguodizhi.com/hk-address 주소 생성기에서 생성하세요. 웹사이트에 접속할 수 없는 경우 www.bing.com에서 "Hong Kong address generator"를 검색하세요.',
+                step2_1: '아무 기기의 브라우저에서 시크릿/프라이빗 모드로 account.apple.com/hk에 접속하세요(Google Chrome 또는 Edge 권장). 오른쪽 상단의 "建立你的 Apple 帳戶"를 클릭하세요.',
+                step2_2: '이름과 성을 입력하세요(아무 이름이나 가능합니다).',
+                step2_3: '국가/지역으로 "香港"(Hong Kong)을 선택하세요.',
+                step2_4: '생년월일을 입력하세요(만 18세 이상이어야 합니다).',
+                step2_5: '새 이메일 주소를 입력하세요 — 이전에 Apple ID 등록에 사용된 적 없는 이메일이어야 합니다. 인증 코드를 받을 수 있는지 확인하세요.',
+                step2_6: '비밀번호를 만드세요(대문자, 소문자, 숫자, 특수 기호를 포함한 8자 이상).',
+                step2_7: '전화번호를 입력하세요 — SMS 인증 코드 수신에 사용됩니다. 아무 번호나 사용할 수 있습니다(홍콩 전화번호일 필요 없음). 나중에 배송 주소에 입력할 전화번호와 다릅니다. "Continue"를 클릭하세요.',
+                step2_8: 'Apple이 보낸 코드로 이메일과 전화번호를 모두 인증하세요.',
+                step3_1: '브라우저에서 account.apple.com의 Apple Account에 접속하세요. 계정 관리 페이지에서 "Payment & Shipping"을 선택한 다음 "Add Shipping Address"를 선택하세요. 1단계에서 준비한 주소 생성기의 홍콩 주소를 입력하세요. 결제 수단을 추가할 필요가 없습니다.',
+                step3_2: '제출 후 웹에서의 홍콩 Apple ID 등록이 완료됩니다.',
+                step4_1: 'iPhone에서 Settings > Privacy & Security > Location Services로 이동하여 OFF로 설정하세요.',
+                step4_2: 'Settings > General > Language & Region으로 이동하여 Language를 "繁體中文 (Traditional Chinese)", Region을 "香港"으로 설정하세요.',
+                step4_3: 'App Store를 열고 오른쪽 상단의 프로필 아이콘을 탭한 다음 아래로 스크롤하여 "Sign Out"을 탭하여 App Store에서만 현재 Apple ID를 로그아웃하세요(Settings의 시스템 Apple ID에는 영향을 주지 않습니다).',
+                step5_1: 'App Store에서 오른쪽 상단의 프로필 아이콘을 탭하고 새로 등록한 Apple ID로 로그인하세요. 아무 무료 앱을 다운로드해 보세요. "This Apple ID has not yet been used in the iTunes Store"라는 메시지가 나타납니다.',
+                step5_2: '"Review"를 탭하세요. 지역으로 "Hong Kong"을 선택하고(올바른 지역을 선택해야 합니다), 약관에 동의한 후 "Next"를 탭하세요. 결제 수단을 선택하지 마세요. 1단계의 홍콩 주소와 전화번호를 입력하세요 — 여기서 전화번호는 생성기의 홍콩 번호를 사용하고 개인 번호는 사용하지 마세요.',
+                step5_3: '"Next"를 탭하여 완료하세요. 홍콩 Apple ID가 완전히 활성화되어 사용할 준비가 되었습니다.'
+            },
+            faqTitle: '자주 묻는 질문',
+            faq1Q: '기존 이메일로 등록할 수 있나요?',
+            faq1A: '아니요. 이메일은 새 것이어야 하며, 이전에 어떤 Apple ID에도 연결된 적이 없어야 합니다. 이전에 사용된 이메일이면 Apple이 등록을 거부합니다. 새 Outlook, Hotmail 또는 Gmail 이메일을 만드세요. 전화번호에는 제한이 없습니다 — SMS를 수신할 수 있는 아무 번호나 사용 가능합니다.',
+            faq2Q: 'iCloud 데이터에 영향이 있나요?',
+            faq2A: '아니요. App Store에서만 로그아웃하고, Settings > Apple ID에서는 로그아웃하지 마세요. iCloud 데이터, 사진, 연락처 및 기타 서비스는 변경되지 않습니다.',
+            faq3Q: 'Apple ID를 전환할 수 있나요?',
+            faq3A: '네, App Store 내에서 언제든지 기존 Apple ID와 지역용 Apple ID 사이를 자유롭게 전환할 수 있습니다. 하나의 ID로 다운로드한 앱은 전환 후에도 설치된 상태로 유지됩니다.'
+        },
+        android: {
+            step1Title: '준비',
+            step1Desc: '인증용 전화번호와 백업 이메일 주소(선택 사항)가 필요합니다. Android 기기에서 Google Play Store에 접근할 수 있는지 확인하세요. 브라우저 또는 Gmail 앱을 사용하여 새 계정을 만드세요.',
+            step2Title: 'Google Account 생성',
+            au: {
+                step2Desc: '브라우저에서 accounts.google.com/signup에 접속하세요. 이름과 성을 입력하고, Gmail 사용자 이름을 선택하고, 강력한 비밀번호를 설정하세요. 국가 선택 시 "Australia"를 선택하세요. 전화 인증을 완료하여 계정 생성을 마무리하세요.'
+            },
+            us: {
+                step2Desc: '브라우저에서 accounts.google.com/signup에 접속하세요. 이름과 성을 입력하고, Gmail 사용자 이름을 선택하고, 강력한 비밀번호를 설정하세요. 국가 선택 시 "United States"를 선택하세요. 전화 인증을 완료하여 계정 생성을 마무리하세요.'
+            },
+            hk: {
+                step2Desc: '브라우저에서 accounts.google.com/signup에 접속하세요. 이름과 성을 입력하고, Gmail 사용자 이름을 선택하고, 강력한 비밀번호를 설정하세요. 국가 선택 시 "Hong Kong"을 선택하세요. 전화 인증을 완료하여 계정 생성을 마무리하세요.'
+            },
+            step3Title: '기기에 계정 추가',
+            step3Desc: 'Android 기기에서 Settings > Accounts(또는 Users & accounts)로 이동하세요. "Add account"를 탭하고 Google을 선택하세요. 새 Google Account 자격 증명으로 로그인하세요. 계정이 기기와 Play Store에 연결됩니다.',
+            step4Title: 'Play Store에서 계정 전환',
+            step4Desc: 'Google Play Store를 여세요. 오른쪽 상단의 프로필 아이콘을 탭하고 이름 옆의 아래쪽 화살표를 탭하세요. 목록에서 새 Google Account를 선택하세요. Play Store가 해당 계정에서 사용 가능한 콘텐츠로 다시 로드됩니다.',
+            step5Title: '앱 다운로드',
+            step5Desc: '새 계정으로 로그인한 상태에서 Play Store에서 앱을 검색하세요. "Install"을 탭하여 다운로드하세요. 서비스 약관 동의를 요청받으면 동의하세요. 앱이 새 Google Account에 연결되어 향후 업데이트를 받을 수 있습니다.',
+            tip: 'Android 기기에 여러 Google Account를 동시에 유지할 수 있습니다. 계정을 삭제하지 않고도 Play Store 내에서 전환이 가능합니다.',
+            faqTitle: '자주 묻는 질문',
+            faq1Q: '기존 Google Account를 삭제해야 하나요?',
+            faq1A: '아니요. Android는 여러 Google Account를 지원합니다. 기존 계정과 함께 새 계정을 추가하고 Play Store에서 전환할 수 있습니다.',
+            faq2Q: '기존 앱이나 데이터에 영향이 있나요?',
+            faq2A: '아니요. 새 Google Account를 추가해도 기존 앱, 연락처, 사진 및 기타 데이터에는 영향을 미치지 않습니다. 각 계정은 독립적으로 작동합니다.',
+            faq3Q: 'Google Account 없이 앱을 사용할 수 있나요?',
+            faq3A: '다운로드 섹션에서 Google Account 없이 APK를 직접 설치할 수 있습니다. 다만, Play Store를 사용하면 자동 업데이트와 검증된 설치가 보장됩니다.'
+        },
+        windows: {
+            step1Title: '준비',
+            step1Desc: '유효한 이메일 주소 또는 전화번호가 필요합니다. Windows PC가 인터넷에 연결되어 있는지 확인하세요. 브라우저 또는 Windows Settings에서 직접 Microsoft Account를 생성할 수 있습니다.',
+            step2Title: 'Microsoft Account 생성',
+            au: {
+                step2Desc: 'account.microsoft.com에 접속하여 "Create a Microsoft account"를 클릭하세요. 이메일 주소를 입력하거나 "Get a new email address"를 선택하여 Outlook 계정을 만드세요. 강력한 비밀번호를 설정하세요. 국가/지역 선택 시 "Australia"를 선택하세요. 인증 단계를 완료하세요.'
+            },
+            us: {
+                step2Desc: 'account.microsoft.com에 접속하여 "Create a Microsoft account"를 클릭하세요. 이메일 주소를 입력하거나 "Get a new email address"를 선택하여 Outlook 계정을 만드세요. 강력한 비밀번호를 설정하세요. 국가/지역 선택 시 "United States"를 선택하세요. 인증 단계를 완료하세요.'
+            },
+            hk: {
+                step2Desc: 'account.microsoft.com에 접속하여 "Create a Microsoft account"를 클릭하세요. 이메일 주소를 입력하거나 "Get a new email address"를 선택하여 Outlook 계정을 만드세요. 강력한 비밀번호를 설정하세요. 국가/지역 선택 시 "Hong Kong"을 선택하세요. 인증 단계를 완료하세요.'
+            },
+            step3Title: 'Windows에서 로그인',
+            step3Desc: 'Windows PC에서 Settings > Accounts > "Email & accounts"를 열고 "Add a Microsoft account"를 클릭하세요. 새 자격 증명으로 로그인하세요. 또는 Microsoft Store 앱에서 직접 로그인할 수도 있습니다.',
+            step4Title: 'Microsoft Store 열기',
+            step4Desc: '작업 표시줄 또는 시작 메뉴에서 Microsoft Store를 여세요. 오른쪽 상단의 프로필 아이콘을 클릭하고 새 Microsoft Account로 로그인되어 있는지 확인하세요. 여러 계정이 있는 경우 올바른 계정을 선택하세요.',
+            step5Title: '앱 다운로드',
+            step5Desc: 'Microsoft Store에서 앱을 검색하세요. "Get" 또는 "Install"을 클릭하여 다운로드하세요. 첫 다운로드인 경우 서비스 약관에 동의해야 할 수 있습니다. 앱이 Microsoft Account에 연결되어 향후 업데이트를 받을 수 있습니다.',
+            tip: '위의 다운로드 섹션에서 Microsoft Store를 사용하지 않고 직접 앱을 다운로드할 수도 있습니다. 직접 다운로드는 Microsoft Account 없이 사용 가능합니다.',
+            faqTitle: '자주 묻는 질문',
+            faq1Q: '앱을 사용하려면 Microsoft Account가 필요한가요?',
+            faq1A: '반드시 필요하지는 않습니다. 다운로드 섹션에서 Microsoft Account 없이 직접 앱을 다운로드할 수 있습니다. Microsoft Account는 Microsoft Store에서 설치할 때만 필요합니다.',
+            faq2Q: '기존 Microsoft Account를 사용할 수 있나요?',
+            faq2A: '네, 기존 Microsoft Account(Outlook, Hotmail, Xbox 등)를 사용하여 Microsoft Store에 로그인하고 앱을 다운로드할 수 있습니다.',
+            faq3Q: '앱이 자동으로 업데이트되나요?',
+            faq3A: 'Microsoft Store에서 설치한 경우 업데이트는 자동으로 처리됩니다. 직접 다운로드의 경우 이 페이지에서 최신 버전을 수동으로 다운로드해야 할 수 있습니다.'
+        }
+    },
+
+    // Marketing / Promotion Guide (marketing.html)
+    mkt: {
+        navOnline: '온라인 프로모션',
+        navOffline: '오프라인 프로모션',
+        navPrint: '인쇄 설정',
+        navStrategy: '전략',
+        heroBadge: '프로모션 가이드',
+        heroTitle: '홍보하고 &amp; 벌기<br>반복적인 수입',
+        heroDesc: '귀하의 추천 코드는 단순한 코드가 아닙니다 — 반복적인 수입을 구축할 수 있는 기회입니다. 귀하의 추천인과 그들의 추천인으로부터도 커미션을 받으세요.',
+        heroMultiLevel: '멀티 레벨',
+        heroMultiLevelLabel: '수익 네트워크',
+        heroRecurring: '반복적',
+        heroRecurringLabel: '커미션 수입',
+        heroGlobal: '글로벌',
+        heroGlobalLabel: '도달 범위 및 홍보',
+        step1Title: '나만의 전용 프로모션 포스터 만들기',
+        step1Intro: '다른 사람들에게 귀하의 추천 코드를 보여주는 것이 수익을 향한 첫 번째 단계입니다.',
+        step1_1: '공식 프로모션 포스터 템플릿을 다운로드하세요.',
+        step1_2: '<a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>에 가입하고 사용하여, 다운로드한 포스터를 이 웹사이트에 업로드하세요. (무료로 사용할 수 있지만 12345APP을 통한 연결이 필요합니다.)',
+        step1_3: 'AI를 사용하여 포스터를 편집하고 원래 추천 코드를 귀하의 전용 추천 코드로 교체하세요. AI를 사용하여 포스터를 현지 언어로 번역하세요. 다음 프롬프트를 사용하세요: <em>"첨부된 포스터에서 추천 코드를 [귀하의 코드]로 변경하고 4K 버전을 내보내주세요."</em>',
+        step1_4: '새로 생성된 포스터를 다운로드하고 즉시 온라인 홍보를 시작하세요.',
+        channelsTitle: '온라인 프로모션 채널',
+        channelSocial: '소셜 미디어',
+        channelMessenger: 'Telegram / WhatsApp',
+        channelCommunity: '커뮤니티 그룹',
+        channelForums: '포럼 / 댓글',
+        step1Goal: '목표는 간단합니다: 귀하의 추천 코드를 통해 더 많은 사람들이 가입하고 서비스를 이용하게 하는 것입니다.',
+        step2Title: '오프라인 프로모션 (높은 노출, 높은 전환율)',
+        step2Intro: '도달 범위를 확대하고 싶다면 물리적 포스터 프로모션을 고려하세요. 유동 인구가 많은 지역에서는 가시성이 곧 기회입니다.',
+        step2Insight: '<strong>핵심 통찰:</strong> 노출이 많을수록 스캔이 많아지고 — 커미션이 더 안정적이 됩니다.',
+        step2SuppliesTitle: '필요한 것',
+        supplyPaper: 'A4 접착 스티커 용지',
+        supplyPrinter: '표준 레이저 프린터',
+        supplyFile: '고해상도 포스터 파일',
+        step3Title: '포스터를 인쇄용 고해상도로 업그레이드',
+        step3Intro: '인쇄물이 선명하고 전문적이며 신뢰할 수 있도록 다음 단계를 따르세요:',
+        step3_1: '<a href="https://www.photopea.com/" target="_blank" rel="noopener">photopea.com</a>으로 이동',
+        step3_2: '왼쪽 상단 메뉴 클릭: Image \u2192 Image Size',
+        step3_3: 'Resolution (DPI)을 350 dpi로 설정',
+        step3_4: '이미지 저장',
+        step3_5: '레이저 프린터로 인쇄',
+        step3Insight: '<strong>프로 팁:</strong> 350 dpi 해상도는 시각적 품질을 크게 향상시키고 스캔율을 높입니다. 더 높은 인쇄 품질은 신뢰를 쌓고 더 많은 사람들이 귀하의 코드를 스캔하도록 유도합니다.',
+        strategyTitle: '핵심 전략',
+        strategyDesc: '추천 수입을 극대화하려면 이 원칙들을 따르세요.',
+        strategy1Title: '장기적 수익',
+        strategy1Desc: '한 번의 프로모션으로 장기적인 수입을 창출할 수 있습니다. 오늘의 노력이 시간이 지남에 따라 계속 보상을 줍니다.',
+        strategy2Title: '네트워크 성장',
+        strategy2Desc: '한 사람을 추천하고 그 사람이 다른 사람을 추천하면 성장이 배가됩니다. 나만의 수입 네트워크를 구축하세요.',
+        strategy3Title: '최대 노출',
+        strategy3Desc: '더 많은 노출은 더 많은 스캔으로 이어집니다. 최상의 결과를 위해 온라인과 오프라인 모두에서 홍보하세요.',
+        strategy4Title: '지금 행동하세요',
+        strategy4Desc: '빨리 행동할수록 수입이 빨리 축적되기 시작합니다. 오늘 시작하세요.',
+        ctaTitle: '프로모션을 시작할 준비가 되셨나요?',
+        ctaDesc: '앱을 다운로드하고 추천 코드를 받아 오늘부터 수입 네트워크 구축을 시작하세요.',
+        ctaAffiliate: '제휴 프로그램 보기'
+    },
+
+});
