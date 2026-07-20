@@ -294,7 +294,7 @@ I18n.addTranslations('zh-tw', {
         step1Title: '製作你的專屬推廣海報',
         step1Intro: '讓別人看到你的推薦碼，是賺錢的第一步。',
         step1_1: '下載官方推廣海報範本。',
-        step1_2: '註冊並使用 <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>，將下載的海報上傳到此網站。（免費使用，但需透過 12345APP 連線。）',
+        step1_2: '註冊並使用 <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>，將下載的海報上傳到此網站。（免費使用，但需透過 12345VPN 連線。）',
         step1_3: '使用 AI 修改海報，並將原有的推薦碼替換為您專屬的推薦碼。使用 AI 將海報翻譯成您的當地語言。請使用以下提示：<em>「對於附件海報，請將推薦碼更改為[您的推薦碼]，並匯出海報的4K版本。」</em>',
         step1_4: '下載產生的新海報，立即開始線上推廣。',
         channelsTitle: '線上推廣方式',

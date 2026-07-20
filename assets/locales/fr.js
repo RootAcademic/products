@@ -484,7 +484,7 @@ I18n.addTranslations('fr', {
         step1Title: 'Créez votre affiche promotionnelle exclusive',
         step1Intro: 'Faire voir votre code de parrainage est la première étape pour commencer à gagner.',
         step1_1: 'Téléchargez le modèle d\'affiche promotionnelle officiel.',
-        step1_2: 'Inscrivez-vous et utilisez <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, envoyez l\'affiche téléchargée sur ce site. (Gratuit, mais nécessite une connexion via 12345APP.)',
+        step1_2: 'Inscrivez-vous et utilisez <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, envoyez l\'affiche téléchargée sur ce site. (Gratuit, mais nécessite une connexion via 12345VPN.)',
         step1_3: 'Utilisez l\'IA pour modifier l\'affiche et remplacer le code de parrainage original par votre propre code exclusif. Utilisez l\'IA pour traduire l\'affiche dans votre langue locale. Utilisez le prompt suivant : <em>« Pour l\'affiche jointe, changez le code de parrainage en [Votre Code], et exportez la version 4K. »</em>',
         step1_4: 'Téléchargez la nouvelle affiche générée et commencez immédiatement à la promouvoir en ligne.',
         channelsTitle: 'Canaux de promotion en ligne',

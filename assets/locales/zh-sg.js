@@ -453,7 +453,7 @@ I18n.addTranslations('zh-sg', {
         step1Title: '制作你的专属推广海报',
         step1Intro: '让别人看到你的推荐码，是赚钱的第一步。',
         step1_1: '下载官方推广海报模板。',
-        step1_2: '注册并使用 <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>，将下载的海报上传到此网站。（免费使用，但需通过 12345APP 连接。）',
+        step1_2: '注册并使用 <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>，将下载的海报上传到此网站。（免费使用，但需通过 12345VPN 连接。）',
         step1_3: '使用 AI 修改海报，并将原有的推荐码替换为您专属的推荐码。使用 AI 将海报翻译成您的本地语言。请使用以下提示：<em>"对于附件海报，请将推荐码更改为[您的推荐码]，并导出海报的4K版本。"</em>',
         step1_4: '下载生成的新海报，立即开始线上推广。',
         channelsTitle: '线上推广方式',

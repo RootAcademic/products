@@ -484,7 +484,7 @@ I18n.addTranslations('de', {
         step1Title: 'Erstellen Sie Ihr exklusives Werbeplakat',
         step1Intro: 'Andere auf Ihren Empfehlungscode aufmerksam zu machen, ist der erste Schritt zum Verdienen.',
         step1_1: 'Laden Sie die offizielle Werbeplakatvorlage herunter.',
-        step1_2: 'Registrieren Sie sich und nutzen Sie <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, laden Sie das heruntergeladene Plakat auf diese Website hoch. (Kostenlos nutzbar, erfordert aber eine Verbindung über 12345APP.)',
+        step1_2: 'Registrieren Sie sich und nutzen Sie <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, laden Sie das heruntergeladene Plakat auf diese Website hoch. (Kostenlos nutzbar, erfordert aber eine Verbindung über 12345VPN.)',
         step1_3: 'Verwenden Sie KI, um das Plakat zu bearbeiten und den ursprünglichen Empfehlungscode durch Ihren eigenen exklusiven Code zu ersetzen. Verwenden Sie KI, um das Plakat in Ihre Landessprache zu übersetzen. Verwenden Sie folgenden Prompt: <em>„Für das beigefügte Plakat, ändere den Empfehlungscode zu [Ihr Code] und exportiere die 4K-Version."</em>',
         step1_4: 'Laden Sie das neu generierte Plakat herunter und beginnen Sie sofort mit der Online-Werbung.',
         channelsTitle: 'Online-Werbekanäle',

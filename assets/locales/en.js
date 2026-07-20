@@ -484,7 +484,7 @@ I18n.addTranslations('en', {
         step1Title: 'Create Your Exclusive Promotional Poster',
         step1Intro: 'Getting others to see your referral code is the first step toward earning.',
         step1_1: 'Download the official promotional poster template.',
-        step1_2: 'Register and use <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, upload the downloaded poster to this website. (Free to use, but requires connection through 12345APP.)',
+        step1_2: 'Register and use <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, upload the downloaded poster to this website. (Free to use, but requires connection through 12345VPN.)',
         step1_3: 'Use AI to edit the poster and replace the original referral code with your own exclusive referral code. Use AI to translate the poster to your local language. Use the following prompt: <em>"For the attached poster, change the referral code to [Your Code], and export the 4K version."</em>',
         step1_4: 'Download the newly generated poster and immediately start promoting it online.',
         channelsTitle: 'Online Promotion Channels',

@@ -451,7 +451,7 @@ I18n.addTranslations('tr', {
         step1Title: 'Özel tanıtım posterinizi oluşturun',
         step1Intro: 'Başkalarının davet kodunuzu görmesini sağlamak, kazanmaya giden ilk adımdır.',
         step1_1: 'Resmi tanıtım posteri şablonunu indirin.',
-        step1_2: '<a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>\'a kaydolun ve kullanın, indirilen posteri bu web sitesine yükleyin. (Ücretsiz kullanılabilir, ancak 12345APP üzerinden bağlantı gerektirir.)',
+        step1_2: '<a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>\'a kaydolun ve kullanın, indirilen posteri bu web sitesine yükleyin. (Ücretsiz kullanılabilir, ancak 12345VPN üzerinden bağlantı gerektirir.)',
         step1_3: 'Posteri düzenlemek ve orijinal davet kodunu kendi özel kodunuzla değiştirmek için yapay zekayı kullanın. Posteri yerel dilinize çevirmek için yapay zekayı kullanın. Şu istemi kullanın: <em>"Ekteki poster için davet kodunu [Kodunuz] olarak değiştirin ve 4K sürümünü dışa aktarın."</em>',
         step1_4: 'Yeni oluşturulan posteri indirin ve hemen çevrimiçi tanıtıma başlayın.',
         channelsTitle: 'Çevrimiçi tanıtım kanalları',

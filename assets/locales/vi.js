@@ -483,7 +483,7 @@ I18n.addTranslations('vi', {
         step1Title: 'Tạo poster quảng bá độc quyền của bạn',
         step1Intro: 'Để người khác nhìn thấy mã giới thiệu của bạn là bước đầu tiên hướng tới thu nhập.',
         step1_1: 'Tải xuống mẫu poster quảng bá chính thức.',
-        step1_2: 'Đăng ký và sử dụng <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, tải lên poster đã tải xuống lên trang web này. (Miễn phí sử dụng, nhưng cần kết nối qua 12345APP.)',
+        step1_2: 'Đăng ký và sử dụng <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, tải lên poster đã tải xuống lên trang web này. (Miễn phí sử dụng, nhưng cần kết nối qua 12345VPN.)',
         step1_3: 'Sử dụng AI để chỉnh sửa poster và thay thế mã giới thiệu gốc bằng mã giới thiệu độc quyền của bạn. Sử dụng AI để dịch poster sang ngôn ngữ địa phương của bạn. Sử dụng prompt sau: <em>"Đối với poster đính kèm, thay đổi mã giới thiệu thành [Mã của bạn], và xuất phiên bản 4K."</em>',
         step1_4: 'Tải xuống poster vừa tạo và bắt đầu quảng bá trực tuyến ngay lập tức.',
         channelsTitle: 'Kênh quảng bá trực tuyến',

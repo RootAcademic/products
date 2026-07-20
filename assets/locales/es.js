@@ -484,7 +484,7 @@ I18n.addTranslations('es', {
         step1Title: 'Crea tu póster promocional exclusivo',
         step1Intro: 'Lograr que otros vean tu código de referido es el primer paso para comenzar a ganar.',
         step1_1: 'Descarga la plantilla del póster promocional oficial.',
-        step1_2: 'Regístrate y usa <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, sube el póster descargado a este sitio web. (Gratis, pero requiere conexión a través de 12345APP.)',
+        step1_2: 'Regístrate y usa <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, sube el póster descargado a este sitio web. (Gratis, pero requiere conexión a través de 12345VPN.)',
         step1_3: 'Usa la IA para editar el póster y reemplazar el código de referido original con tu propio código exclusivo. Usa la IA para traducir el póster a tu idioma local. Usa el siguiente prompt: <em>«Para el póster adjunto, cambia el código de referido a [Tu Código], y exporta la versión 4K.»</em>',
         step1_4: 'Descarga el póster recién generado y comienza a promocionarlo en línea de inmediato.',
         channelsTitle: 'Canales de promoción en línea',

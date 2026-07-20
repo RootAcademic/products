@@ -484,7 +484,7 @@ I18n.addTranslations('fil', {
         step1Title: 'Gumawa ng Iyong Eksklusibong Promotional Poster',
         step1Intro: 'Ang pagpapakit sa iba ng iyong referral code ay ang unang hakbang tungo sa pagkita.',
         step1_1: 'I-download ang opisyal na promotional poster template.',
-        step1_2: 'Magrehistro at gumamit ng <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, i-upload ang na-download na poster sa website na ito. (Libreng gamitin, ngunit kailangan ng koneksyon sa pamamagitan ng 12345APP.)',
+        step1_2: 'Magrehistro at gumamit ng <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, i-upload ang na-download na poster sa website na ito. (Libreng gamitin, ngunit kailangan ng koneksyon sa pamamagitan ng 12345VPN.)',
         step1_3: 'Gamitin ang AI para i-edit ang poster at palitan ang orihinal na referral code ng iyong sariling eksklusibong referral code. Gamitin ang AI para isalin ang poster sa iyong lokal na wika. Gamitin ang sumusunod na prompt: <em>"Para sa naka-attach na poster, palitan ang referral code ng [Iyong Code], at i-export ang 4K na bersyon."</em>',
         step1_4: 'I-download ang bagong likhang poster at agad na simulan ang pag-promote online.',
         channelsTitle: 'Mga Online na Channel ng Promosyon',

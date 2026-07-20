@@ -450,7 +450,7 @@ I18n.addTranslations('id', {
         step1Title: 'Buat Poster Promosi Eksklusif Anda',
         step1Intro: 'Membuat orang lain melihat kode referral Anda adalah langkah pertama menuju penghasilan.',
         step1_1: 'Unduh template poster promosi resmi.',
-        step1_2: 'Daftar dan gunakan <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, unggah poster yang diunduh ke situs web ini. (Gratis untuk digunakan, tetapi memerlukan koneksi melalui 12345APP.)',
+        step1_2: 'Daftar dan gunakan <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, unggah poster yang diunduh ke situs web ini. (Gratis untuk digunakan, tetapi memerlukan koneksi melalui 12345VPN.)',
         step1_3: 'Gunakan AI untuk mengedit poster dan mengganti kode referral asli dengan kode referral eksklusif Anda sendiri. Gunakan AI untuk menerjemahkan poster ke bahasa lokal Anda. Gunakan prompt berikut: <em>"Untuk poster terlampir, ubah kode referral menjadi [Kode Anda], dan ekspor versi 4K."</em>',
         step1_4: 'Unduh poster yang baru dibuat dan segera mulai mempromosikannya secara online.',
         channelsTitle: 'Saluran Promosi Online',

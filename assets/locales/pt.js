@@ -484,7 +484,7 @@ I18n.addTranslations('pt', {
         step1Title: 'Crie o seu cartaz promocional exclusivo',
         step1Intro: 'Fazer com que outros vejam o seu código de referência é o primeiro passo para começar a ganhar.',
         step1_1: 'Transfira o modelo de cartaz promocional oficial.',
-        step1_2: 'Registe-se e utilize <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, envie o cartaz transferido para este site. (Gratuito, mas requer ligação através do 12345APP.)',
+        step1_2: 'Registe-se e utilize <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, envie o cartaz transferido para este site. (Gratuito, mas requer ligação através do 12345VPN.)',
         step1_3: 'Utilize a IA para editar o cartaz e substituir o código de referência original pelo seu próprio código exclusivo. Utilize a IA para traduzir o cartaz para o seu idioma local. Utilize o seguinte prompt: <em>«Para o cartaz anexo, altere o código de referência para [O Seu Código] e exporte a versão 4K.»</em>',
         step1_4: 'Transfira o novo cartaz gerado e comece imediatamente a promovê-lo online.',
         channelsTitle: 'Canais de promoção online',

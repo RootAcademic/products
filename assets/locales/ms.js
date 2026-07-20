@@ -450,7 +450,7 @@ I18n.addTranslations('ms', {
         step1Title: 'Cipta Poster Promosi Eksklusif Anda',
         step1Intro: 'Membuat orang lain melihat kod rujukan anda adalah langkah pertama ke arah pendapatan.',
         step1_1: 'Muat turun templat poster promosi rasmi.',
-        step1_2: 'Daftar dan gunakan <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, muat naik poster yang dimuat turun ke laman web ini. (Percuma untuk digunakan, tetapi memerlukan sambungan melalui 12345APP.)',
+        step1_2: 'Daftar dan gunakan <a href="https://www.lovart.ai/" target="_blank" rel="noopener">lovart.ai</a>, muat naik poster yang dimuat turun ke laman web ini. (Percuma untuk digunakan, tetapi memerlukan sambungan melalui 12345VPN.)',
         step1_3: 'Gunakan AI untuk mengedit poster dan menggantikan kod rujukan asal dengan kod rujukan eksklusif anda sendiri. Gunakan AI untuk menterjemah poster ke bahasa tempatan anda. Gunakan prompt berikut: <em>"Untuk poster yang dilampirkan, tukar kod rujukan kepada [Kod Anda], dan eksport versi 4K."</em>',
         step1_4: 'Muat turun poster yang baru dijana dan segera mula mempromosikannya secara dalam talian.',
         channelsTitle: 'Saluran Promosi Dalam Talian',
