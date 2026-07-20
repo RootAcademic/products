@@ -1485,6 +1485,103 @@ html[dir="rtl"] .guide-tip {
                 <h2 data-i18n="pricing.title">Simple, Transparent Pricing</h2>
                 <p data-i18n="pricing.description">Choose the plan that works best for you. All plans include full access.</p>
             </div>
+            <!--
+            Rotating daily promo widget — drop-in for the static marketing site (RootAcademic/products,
+            served at 12345app.xyz). Self-contained: one <div> + one <script>, no build step, no framework,
+            no secret. It fetches the backend's public endpoint (/v1/public/promo/today), which returns the
+            code deterministically generated for the current UTC day, and renders it. The very same code is
+            already materialized as a redeemable promos row by that endpoint, so a user who copies it and
+            enters it at checkout in the app gets the real discount.
+
+            To use: paste this block where the promo should appear, and set data-api-base to your API origin
+            (e.g. https://api.root-corporation.com). Everything else is optional styling.
+
+            轮换每日优惠码组件 —— 直接嵌入静态营销站(RootAcademic/products,即 12345app.xyz)。自包含:一个
+            <div> + 一段 <script>,无需构建、无框架、无密钥。它请求后端公开端点(/v1/public/promo/today),
+            拿到当前 UTC 日确定性生成的码并渲染。该码在这个端点里已被物化成可兑换的 promos 行,因此用户复制它
+            在 App 结账输入即可获得真实折扣。
+            用法:把本段粘贴到需要展示优惠码的位置,并把 data-api-base 设为你的 API 源(如
+            https://api.root-corporation.com)。其余仅为样式,可选。
+            -->
+            <div
+            id="promo-of-day"
+            data-api-base="https://api.root-corporation.com"
+            style="
+                max-width: 420px;
+                margin: 1.5rem auto;
+                padding: 1.25rem 1.5rem;
+                border: 1px dashed #4f7cff;
+                border-radius: 14px;
+                font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+                text-align: center;
+                background: rgba(79, 124, 255, 0.06);
+            "
+            >
+            <div style="font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;">
+                Today&rsquo;s Code · 今日优惠码
+            </div>
+            <div
+                class="promo-code"
+                style="font-size: 2rem; font-weight: 700; letter-spacing: 0.15em; margin: 0.5rem 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;"
+            >
+                ········
+            </div>
+            <div class="promo-meta" style="font-size: 0.95rem;">&nbsp;</div>
+            <button
+                class="promo-copy"
+                type="button"
+                style="margin-top: 0.75rem; padding: 0.4rem 1rem; border: 0; border-radius: 8px; background: #4f7cff; color: #fff; font-weight: 600; cursor: pointer;"
+                hidden
+            >
+                Copy · 复制
+            </button>
+            </div>
+
+            <script>
+            (function () {
+                var root = document.getElementById("promo-of-day");
+                if (!root) return;
+                var apiBase = (root.getAttribute("data-api-base") || "").replace(/\/+$/, "");
+                var codeEl = root.querySelector(".promo-code");
+                var metaEl = root.querySelector(".promo-meta");
+                var copyBtn = root.querySelector(".promo-copy");
+
+                function render(data) {
+                var code = data.code;
+                var discount = data.discount;
+                var expiredAt = data.expired_at;
+                codeEl.textContent = code;
+                metaEl.textContent = discount + "% OFF — valid today (UTC), expires " + expiredAt;
+                copyBtn.hidden = false;
+                copyBtn.addEventListener("click", function () {
+                    navigator.clipboard && navigator.clipboard.writeText(code);
+                    copyBtn.textContent = "Copied ✓";
+                    setTimeout(function () {
+                    copyBtn.textContent = "Copy · 复制";
+                    }, 1500);
+                });
+                }
+
+                fetch(apiBase + "/v1/public/promo/today", { headers: { Accept: "application/json" } })
+                .then(function (r) {
+                    if (!r.ok) throw new Error("HTTP " + r.status);
+                    return r.json();
+                })
+                .then(function (payload) {
+                    // Backend shape: { success, message, data: { code, discount, quantity, expired_at, date } }
+                    var data = payload && payload.data ? payload.data : payload;
+                    if (!data || !data.code) throw new Error("no code in response");
+                    render(data);
+                })
+                .catch(function (err) {
+                    metaEl.textContent = "Promo temporarily unavailable.";
+                    // Keep the placeholder dots in codeEl; never surface internals to the page.
+                    if (window.console) console.warn("[promo-widget]", err);
+                });
+            })();
+            </script>
+
+
             <div class="pricing-container">
                 <button class="pricing-nav" id="pricing-prev" data-i18n-aria="pricing.previous" aria-label="Previous">&lt;</button>
                 <div class="pricing-wrapper">
