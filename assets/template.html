@@ -2067,6 +2067,177 @@ function setupNavScroll() {
     });
 }
 
+// ─── Live config overlay (additive, fail-soft) ──────────────────────────────
+// Refresh download packages, pricing plans and legal text from the backend on
+// page load so admin-console edits appear without rebuilding the static site.
+// Design contract: this code only ever REPLACES a DOM region AFTER a successful,
+// validated response. On ANY failure (network, timeout, HTTP error, unexpected
+// shape) the build-time baked {{PLACEHOLDER}} markup is left exactly as rendered.
+// Nothing here can blank the page or throw uncaught. Uses the ROOM_HASH / API_BASE
+// constants the generator baked in above, and reuses platformConfig / the pricing
+// carousel helpers already defined in this script.
+var LIVE_CONFIG_TIMEOUT_MS = 8000;
+
+function liveConfigFetch(path, method) {
+    var controller = ('AbortController' in window) ? new AbortController() : null;
+    var timer = controller ? setTimeout(function () { controller.abort(); }, LIVE_CONFIG_TIMEOUT_MS) : null;
+    return fetch(API_BASE + path, {
+        method: method || 'GET',
+        headers: { 'X-Room-Id': ROOM_HASH, 'Accept': 'application/json' },
+        signal: controller ? controller.signal : undefined
+    }).then(function (r) {
+        if (timer) { clearTimeout(timer); }
+        if (!r.ok) { throw new Error('HTTP ' + r.status); }
+        return r.json();
+    }).then(function (json) {
+        // Standard backend envelope: { code: 0, message, data: {...} }.
+        if (json && json.code !== undefined && json.code !== 0) { throw new Error('code ' + json.code); }
+        return (json && json.data !== undefined) ? json.data : json;
+    });
+}
+
+function liveEscapeHtml(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// GET /v1/public/pkg -> { pkgs: [{ platform, link, store, version }] }.
+// Rebuilds the App-Store badge grid and the direct-download binary grid, matching
+// the build-time markup so I18n (data-i18n / data-i18n-html) re-fills the labels.
+function liveApplyPackages(pkgs) {
+    if (!Array.isArray(pkgs) || pkgs.length === 0) { return; }
+    var order = ['apple', 'windows', 'android'];
+    var byPlatform = {};
+    pkgs.forEach(function (p) { if (p && p.platform) { byPlatform[p.platform] = p; } });
+    var sorted = [];
+    order.forEach(function (k) { if (byPlatform[k]) { sorted.push(byPlatform[k]); } });
+    pkgs.forEach(function (p) { if (p && p.platform && order.indexOf(p.platform) === -1) { sorted.push(p); } });
+
+    var downloadSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+    var storesHtml = '';
+    var binariesHtml = '';
+    sorted.forEach(function (pkg) {
+        var config = platformConfig[pkg.platform];
+        if (!config) { return; }
+        var hasStore = pkg.store && String(pkg.store).trim() !== '';
+        var hasLink = pkg.link && String(pkg.link).trim() !== '';
+        if (hasStore) {
+            storesHtml +=
+                '<div class="download-store-item">' +
+                    '<a href="' + liveEscapeHtml(pkg.store) + '" target="_blank" rel="noopener noreferrer">' +
+                        '<img src="' + config.badge + '" alt="' + config.storeLabel + '" class="download-store-badge">' +
+                    '</a>' +
+                    '<a href="#account-guide" class="store-guide-link" onclick="navigateToGuide(\'' + pkg.platform + '\');return false;" data-i18n-html="download.storeGuideHint.' + pkg.platform + '"><small>Learn to create</small><span></span></a>' +
+                '</div>';
+        }
+        if (hasLink) {
+            binariesHtml +=
+                '<div class="download-binary-card">' +
+                    '<div class="download-binary-icon">' + config.icon + '</div>' +
+                    '<h4 data-i18n="download.' + pkg.platform + '.name">' + config.name + '</h4>' +
+                    '<div class="download-binary-version">v' + liveEscapeHtml(pkg.version) + '</div>' +
+                    '<a href="' + liveEscapeHtml(pkg.link) + '" target="_blank" rel="noopener noreferrer" class="download-binary-btn">' + downloadSvg + '<span data-i18n="download.downloadNow">Download</span></a>' +
+                '</div>';
+        }
+    });
+
+    var storesGrid = document.querySelector('.download-stores-grid');
+    var binariesGrid = document.querySelector('.download-binaries-grid');
+    if (storesGrid && storesHtml) { storesGrid.innerHTML = storesHtml; }
+    if (binariesGrid && binariesHtml) { binariesGrid.innerHTML = binariesHtml; }
+    if (window.I18n && I18n.translatePage) { I18n.translatePage(); }
+}
+
+// POST /v1/public/product -> { products: [{ name, price(cents), original_price, period(days), status }] }.
+// Rebuilds the pricing carousel cards (price = cents / 100) and re-inits navigation.
+function liveApplyProducts(products) {
+    if (!Array.isArray(products) || products.length === 0) { return; }
+    var grid = document.getElementById('pricing-grid');
+    if (!grid) { return; }
+
+    var featuredIndex = (products.length >= 3) ? 1 : -1; // mirror the build-time "second card featured" styling
+    var featureLis =
+        '<li data-i18n="pricing.featurePrivacy">Full Privacy Protection</li>' +
+        '<li data-i18n="pricing.featureNodes">All Global Nodes</li>' +
+        '<li data-i18n="pricing.featureBandwidth">Unlimited Bandwidth</li>' +
+        '<li data-i18n="pricing.featureSupport">24/7 Privacy Support</li>';
+
+    var html = '';
+    products.forEach(function (p, i) {
+        if (!p || typeof p.price !== 'number') { return; }
+        var period = Number(p.period);
+        var periodStr = (isFinite(period) && Math.floor(period) === period) ? String(Math.floor(period)) : String(p.period);
+        var periodKey = (period === 1) ? 'pricing.day' : 'pricing.days';
+        var periodLabel = (period === 1) ? 'Day' : 'Days';
+        var amount = (p.price / 100).toFixed(2);
+        var name = (p.name !== undefined && p.name !== null) ? liveEscapeHtml(p.name) : '';
+        var featured = (i === featuredIndex) ? ' featured' : '';
+        html +=
+            '<div class="pricing-card' + featured + '" data-index="' + i + '">' +
+                '<div class="pricing-name">' + name + '</div>' +
+                '<div class="pricing-period">' + liveEscapeHtml(periodStr) + ' <span data-i18n="' + periodKey + '">' + periodLabel + '</span></div>' +
+                '<div class="pricing-price"><span class="currency">A$</span><span class="amount">' + amount + '</span></div>' +
+                '<ul class="pricing-features">' + featureLis + '</ul>' +
+                '<a href="#" class="btn btn-primary" data-i18n="nav.getStarted">Get Started</a>' +
+            '</div>';
+    });
+    if (!html) { return; } // nothing valid parsed — keep the baked cards
+
+    grid.innerHTML = html;
+    grid.style.transform = '';
+    currentProductIndex = 0;
+
+    // Re-init the carousel against the new cards. The nav buttons live outside the
+    // grid, so clone-replace them first to drop the click handlers bound to the
+    // baked cards (otherwise setupPricingNavigation would stack a second handler).
+    ['pricing-prev', 'pricing-next'].forEach(function (id) {
+        var b = document.getElementById(id);
+        if (b && b.parentNode) { b.parentNode.replaceChild(b.cloneNode(true), b); }
+    });
+    if (typeof setupPricingNavigation === 'function') { setupPricingNavigation(); }
+    if (typeof updatePricingCarousel === 'function') { updatePricingCarousel(); }
+    if (window.I18n && I18n.translatePage) { I18n.translatePage(); }
+}
+
+// Convert backend plain-text legal (double-newline paragraphs, single-newline
+// line breaks) into the same <p>/<br> markup the generator bakes. Always escaped.
+function liveLegalToHtml(text) {
+    return String(text)
+        .split(/\r?\n\s*\r?\n/)
+        .map(function (block) { return '<p>' + liveEscapeHtml(block).replace(/\r?\n/g, '<br>') + '</p>'; })
+        .join('');
+}
+
+// GET /v1/public/legal -> { legal: { user_agreement, privacy_policy } }.
+function liveApplyLegal(legal) {
+    if (!legal || typeof legal !== 'object') { return; }
+    var agreementEl = document.getElementById('legal-agreement');
+    var privacyEl = document.getElementById('legal-privacy');
+    if (agreementEl && typeof legal.user_agreement === 'string' && legal.user_agreement.trim() !== '') {
+        agreementEl.innerHTML = liveLegalToHtml(legal.user_agreement);
+    }
+    if (privacyEl && typeof legal.privacy_policy === 'string' && legal.privacy_policy.trim() !== '') {
+        privacyEl.innerHTML = liveLegalToHtml(legal.privacy_policy);
+    }
+}
+
+function initLiveConfig() {
+    // Only run once the generator actually substituted the room constants.
+    if (typeof API_BASE !== 'string' || typeof ROOM_HASH !== 'string') { return; }
+    if (!API_BASE || !ROOM_HASH || API_BASE.indexOf('{{') === 0 || ROOM_HASH.indexOf('{{') === 0) { return; }
+
+    liveConfigFetch('/v1/public/pkg', 'GET')
+        .then(function (data) { liveApplyPackages(data && data.pkgs); })
+        .catch(function (e) { if (window.console) { console.warn('[live-config] packages', e); } });
+
+    liveConfigFetch('/v1/public/product', 'POST')
+        .then(function (data) { liveApplyProducts(data && data.products); })
+        .catch(function (e) { if (window.console) { console.warn('[live-config] products', e); } });
+
+    liveConfigFetch('/v1/public/legal', 'GET')
+        .then(function (data) { liveApplyLegal(data && data.legal); })
+        .catch(function (e) { if (window.console) { console.warn('[live-config] legal', e); } });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     setupPricingNavigation();
     setupLegalTabs();
@@ -2075,6 +2246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupNavScroll();
     setupPopupListeners();
     initDownloads();
+    initLiveConfig();
     document.addEventListener('i18n:localeChanged', setupGuideHint);
 
     // Load guide.html at runtime so it stays in sync with the source file

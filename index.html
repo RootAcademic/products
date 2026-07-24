@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>(function(){var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})()</script>
+    <script>
+    // Host-based routing across the two brand domains that share this repo:
+    //   root-corporation.com  -> this page (the corporate "all solutions" hub)
+    //   12345vpn.com          -> the 12345VPN product page
+    // Only the bare root is redirected, so deep links on 12345vpn.com still resolve.
+    (function () {
+        try {
+            var h = location.hostname.replace(/^www\./, '').toLowerCase();
+            var p = location.pathname;
+            if (h === '12345vpn.com' && (p === '/' || p === '' || p === '/index.html')) {
+                location.replace('/RqWhZb7hdJnt9a+y+zr+Q7Ojgi4JPAyoHzcWBJZa8bk=.html');
+            }
+        } catch (e) {}
+    })();
+    </script>
     <title>Root Corporation - Privacy Protection Services</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1387,6 +1402,92 @@ document.addEventListener('DOMContentLoaded', () => {
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function() {
         if (!localStorage.getItem('theme')) applyTheme(getSystemTheme());
     });
+})();
+    </script>
+    <script>
+// ─── Live config overlay for the landing app cards (additive, fail-soft) ─────
+// Each app card is an <a href="<room-hash>.html">; we derive the room hash from
+// that href and refresh the card's "Plans" count, "Platforms" count and "from"
+// price from the backend so admin-console edits appear without a site rebuild.
+// On ANY failure the build-time baked values are left untouched. Nothing here can
+// blank a card or throw uncaught.
+(function () {
+    var API_BASE = 'https://api.root-corporation.com';
+    var TIMEOUT_MS = 8000;
+
+    function fetchJson(hash, path, method) {
+        var controller = ('AbortController' in window) ? new AbortController() : null;
+        var timer = controller ? setTimeout(function () { controller.abort(); }, TIMEOUT_MS) : null;
+        return fetch(API_BASE + path, {
+            method: method || 'GET',
+            headers: { 'X-Room-Id': hash, 'Accept': 'application/json' },
+            signal: controller ? controller.signal : undefined
+        }).then(function (r) {
+            if (timer) { clearTimeout(timer); }
+            if (!r.ok) { throw new Error('HTTP ' + r.status); }
+            return r.json();
+        }).then(function (json) {
+            if (json && json.code !== undefined && json.code !== 0) { throw new Error('code ' + json.code); }
+            return (json && json.data !== undefined) ? json.data : json;
+        });
+    }
+
+    function statValueByLabel(card, i18nKey) {
+        var labels = card.querySelectorAll('.app-stat .app-stat-label');
+        for (var i = 0; i < labels.length; i++) {
+            if (labels[i].getAttribute('data-i18n') === i18nKey) {
+                var stat = labels[i].closest('.app-stat');
+                return stat ? stat.querySelector('.app-stat-value') : null;
+            }
+        }
+        return null;
+    }
+
+    function updateCard(card) {
+        var href = card.getAttribute('href') || '';
+        var m = href.match(/^(.*)\.html$/);
+        if (!m || !m[1]) { return; }
+        var hash = m[1];
+        // Skip non-room pages that happen to be linked as cards.
+        if (hash === 'index' || hash === 'affiliate' || hash.indexOf('/') !== -1) { return; }
+
+        // Plans count + "from" price come from the products endpoint.
+        fetchJson(hash, '/v1/public/product', 'POST').then(function (data) {
+            var products = data && data.products;
+            if (!Array.isArray(products) || products.length === 0) { return; }
+            var plansEl = statValueByLabel(card, 'apps.statPlans');
+            if (plansEl) { plansEl.textContent = String(products.length); }
+            var min = null;
+            products.forEach(function (p) {
+                if (p && typeof p.price === 'number' && (min === null || p.price < min)) { min = p.price; }
+            });
+            if (min !== null) {
+                var priceEl = card.querySelector('.app-price-value');
+                if (priceEl) { priceEl.textContent = 'A$' + (min / 100).toFixed(2); }
+            }
+        }).catch(function (e) { if (window.console) { console.warn('[live-config] card products', e); } });
+
+        // Platform count comes from the packages endpoint.
+        fetchJson(hash, '/v1/public/pkg', 'GET').then(function (data) {
+            var pkgs = data && data.pkgs;
+            if (!Array.isArray(pkgs) || pkgs.length === 0) { return; }
+            var platEl = statValueByLabel(card, 'apps.statPlatforms');
+            if (platEl) { platEl.textContent = String(pkgs.length); }
+        }).catch(function (e) { if (window.console) { console.warn('[live-config] card packages', e); } });
+    }
+
+    function run() {
+        try {
+            var cards = document.querySelectorAll('#apps-grid .app-card[href$=".html"]');
+            for (var i = 0; i < cards.length; i++) { updateCard(cards[i]); }
+        } catch (e) { if (window.console) { console.warn('[live-config] cards', e); } }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', run);
+    } else {
+        run();
+    }
 })();
     </script>
 </body>
