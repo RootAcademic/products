@@ -614,9 +614,16 @@ footer {
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 8px;
-    min-width: 190px;
-    max-height: 420px;
+    /* Two responsive columns so all 28 languages are visible without relying on scrolling
+       (macOS hides scrollbars, which made the lower ~17 languages look missing). */
+    min-width: 380px;
+    max-width: 92vw;
+    max-height: 560px;
     overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 2px 6px;
+    scrollbar-width: thin;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -626,6 +633,10 @@ footer {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 }
+
+.lang-dropdown::-webkit-scrollbar { width: 10px; }
+.lang-dropdown::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+.lang-dropdown::-webkit-scrollbar-track { background: transparent; }
 
 .lang-switcher.open .lang-dropdown {
     opacity: 1;
