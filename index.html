@@ -2517,6 +2517,13 @@ document.addEventListener('DOMContentLoaded', () => {
         setupGuideTabs();
         if (window.I18n) I18n.translatePage();
         setupGuideHint();
+        // The guide sits above #contact and starts empty, so filling it shifts #contact down
+        // after the browser already scrolled. If we arrived with a hash (e.g. index.html#contact
+        // from the affiliate page), re-scroll to it now that the layout height is final.
+        if (location.hash) {
+            var target = document.querySelector(location.hash);
+            if (target) target.scrollIntoView();
+        }
     });
 });
     </script>
