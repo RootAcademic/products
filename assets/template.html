@@ -2265,10 +2265,47 @@ function liveApplyPromos(promos) {
     });
 }
 
+// Bonuses (#bonuses): live day-counts from POST /v1/public/bonus.
+// data is an array [{name:'welcome_bonus'|'refer_bonus'|'share_bonus', days:Number}].
+// The unit label stays a data-i18n span so locale switches keep working; we pick the
+// best-fitting unit (days/hours/minutes) and swap the span's i18n key accordingly.
+function liveApplyBonuses(bonuses) {
+    if (!Array.isArray(bonuses) || bonuses.length === 0) { return; }
+    var byName = {};
+    bonuses.forEach(function (b) {
+        if (b && typeof b.name === 'string' && typeof b.days === 'number' && b.days >= 0) {
+            byName[b.name] = b.days;
+        }
+    });
+    var order = ['welcome_bonus', 'refer_bonus', 'share_bonus'];
+    var values = document.querySelectorAll('#bonuses .bonus-card .bonus-value');
+    values.forEach(function (el, i) {
+        var days = byName[order[i]];
+        if (typeof days !== 'number') { return; }
+        var num, key;
+        if (days >= 1) { num = days; key = 'bonuses.daysFree'; }
+        else if (days * 24 >= 1) { num = days * 24; key = 'bonuses.hoursFree'; }
+        else { num = days * 1440; key = 'bonuses.minutesFree'; }
+        num = Math.round(num * 10) / 10;
+        var span = el.querySelector('span[data-i18n]');
+        if (!span || !el.firstChild || el.firstChild.nodeType !== 3) { return; }
+        span.setAttribute('data-i18n', key);
+        if (window.I18n && typeof I18n.t === 'function') {
+            var label = I18n.t(key);
+            if (label) { span.textContent = label; }
+        }
+        el.firstChild.nodeValue = String(num) + ' ';
+    });
+}
+
 function initLiveConfig() {
     // Only run once the generator actually substituted the room constants.
     if (typeof API_BASE !== 'string' || typeof ROOM_HASH !== 'string') { return; }
     if (!API_BASE || !ROOM_HASH || API_BASE.indexOf('{{') === 0 || ROOM_HASH.indexOf('{{') === 0) { return; }
+
+    liveConfigFetch('/v1/public/bonus', 'POST')
+        .then(function (data) { liveApplyBonuses(data); })
+        .catch(function (e) { if (window.console) { console.warn('[live-config] bonuses', e); } });
 
     liveConfigFetch('/v1/public/pkg', 'GET')
         .then(function (data) { liveApplyPackages(data && data.pkgs); })
