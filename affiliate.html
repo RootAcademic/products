@@ -814,6 +814,12 @@ var ROOM_HASH = 'RqWhZb7hdJnt9a+y+zr+Q7Ojgi4JPAyoHzcWBJZa8bk=';
             ? Math.round(v).toLocaleString('en-US')
             : v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
     }
+    function moneyPlain(dollars) {
+        var v = Math.round(dollars * 100) / 100;
+        return 'A$' + (v % 1 === 0
+            ? Math.round(v).toLocaleString('en-US')
+            : v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+    }
 
     function applyLive() {
         if (!LIVE_RULE) return;
@@ -846,6 +852,38 @@ var ROOM_HASH = 'RqWhZb7hdJnt9a+y+zr+Q7Ojgi4JPAyoHzcWBJZa8bk=';
                     if (typeof refs[i] === 'number') tds[1].textContent = String(refs[i]);
                     if (typeof revs[i] === 'number') tds[2].textContent = money(revs[i]);
                 }
+            });
+        }
+
+        // Earning scenarios: recompute the example math from the live recurring
+        // ladder. Scenario sizes are fixed marketing constants (members per level,
+        // A$100 spend each); only the rates and resulting amounts change.
+        if (rec && rec.length) {
+            var SPEND = 100;
+            var SCENARIOS = [[5], [5, 15], [10, 30, 90], [25, 75, 225, 675], [50, 150, 450, 1350, 4050]];
+            document.querySelectorAll('#examples .aff-example-card').forEach(function(card, ci) {
+                var counts = SCENARIOS[ci];
+                if (!counts) return;
+                var lis = card.querySelectorAll('ul.aff-example-breakdown li:not(.locked)');
+                if (lis.length !== counts.length) return;
+                var total = 0;
+                var ok = true;
+                lis.forEach(function(li, j) {
+                    if (typeof rec[j] !== 'number') { ok = false; return; }
+                    var amount = counts[j] * SPEND * rec[j];
+                    total += amount;
+                    var spans = li.querySelectorAll('span');
+                    if (spans.length >= 2) {
+                        spans[0].textContent = 'L' + (j + 1) + ': ' + counts[j].toLocaleString('en-US') +
+                            ' × A$' + SPEND + ' × ' + pct(rec[j]);
+                        spans[spans.length - 1].textContent = moneyPlain(amount);
+                    }
+                });
+                if (!ok) return;
+                var value = card.querySelector('.aff-example-value');
+                if (value) value.textContent = moneyPlain(total);
+                var totalEl = card.querySelector('.aff-example-total span:last-child');
+                if (totalEl) totalEl.textContent = moneyPlain(total);
             });
         }
 
