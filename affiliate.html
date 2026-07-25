@@ -100,10 +100,10 @@ a.aff-room-header:hover { background: linear-gradient(135deg, rgba(99, 102, 241,
 }
 
 /* Tables */
-.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; border: 1px solid var(--border); }
-.table-scroll::-webkit-scrollbar { height: 4px; }
-.table-scroll::-webkit-scrollbar-track { background: transparent; }
-.table-scroll::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; border: 1px solid var(--border); scrollbar-width: thin; scrollbar-color: var(--primary-light) rgba(120,120,140,0.15); }
+.table-scroll::-webkit-scrollbar { height: 10px; }
+.table-scroll::-webkit-scrollbar-track { background: rgba(120,120,140,0.15); border-radius: 5px; }
+.table-scroll::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 5px; border: 2px solid transparent; background-clip: padding-box; }
 
 .aff-matrix { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 .aff-matrix th {

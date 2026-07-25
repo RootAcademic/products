@@ -125,6 +125,24 @@ body {
 /* ===== Container ===== */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
+/* ===== Always-visible scrollbars =====
+   macOS hides overlay scrollbars until you scroll; styling ::-webkit-scrollbar
+   makes them persistent in Chromium/Safari, and scrollbar-color does it in
+   Firefox. Applied globally so every scrollable region shows a bar. */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(99,102,241,0.6) rgba(120,120,140,0.15);
+}
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: rgba(120,120,140,0.15); border-radius: 6px; }
+::-webkit-scrollbar-thumb {
+    background: rgba(99,102,241,0.6);
+    border-radius: 6px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(99,102,241,0.85); background-clip: padding-box; }
+
 /* ===== Scroll Reveal ===== */
 .reveal {
     opacity: 0;
