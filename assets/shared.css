@@ -614,16 +614,18 @@ footer {
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 8px;
-    /* Two responsive columns so all 28 languages are visible without relying on scrolling
-       (macOS hides scrollbars, which made the lower ~17 languages look missing). */
-    min-width: 380px;
+    /* Exactly two columns with a visible scrollbar. The height is capped below the
+       full list so it always scrolls (a wide auto-fill grid previously ballooned to
+       3+ columns on desktop and, at 560px, fit all 14 rows so no scrollbar showed). */
+    width: 340px;
     max-width: 92vw;
-    max-height: 560px;
+    max-height: min(58vh, 400px);
     overflow-y: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2px 6px;
-    scrollbar-width: thin;
+    scrollbar-width: auto;
+    scrollbar-color: var(--border-strong, #888) transparent;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -634,9 +636,10 @@ footer {
     -webkit-backdrop-filter: blur(20px);
 }
 
-.lang-dropdown::-webkit-scrollbar { width: 10px; }
-.lang-dropdown::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
-.lang-dropdown::-webkit-scrollbar-track { background: transparent; }
+.lang-dropdown::-webkit-scrollbar { width: 12px; }
+.lang-dropdown::-webkit-scrollbar-thumb { background: var(--border-strong, #888); border-radius: 6px; border: 3px solid transparent; background-clip: padding-box; }
+.lang-dropdown::-webkit-scrollbar-thumb:hover { background: var(--text-muted, #aaa); background-clip: padding-box; }
+.lang-dropdown::-webkit-scrollbar-track { background: rgba(120,120,140,0.12); border-radius: 6px; }
 
 .lang-switcher.open .lang-dropdown {
     opacity: 1;
